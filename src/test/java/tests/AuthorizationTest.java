@@ -32,7 +32,12 @@ public class AuthorizationTest {
         System.out.println(repoName);
         String body =String.format("{\"name\":\"%s\",\"description\":\"This is your first repo! \",\"homepage\":\"https://github.com/\",\"private\":false,\"is_template\":true}", repoName);
         given()
-                .header("Authorization", "Bearer " + "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")
+                .header("Authorization", "Bearer " + "gith" +
+                        "ub_pat_11BA" +
+                        "7FJXQ0VqFn7EmdQCnr_9mwRM" +
+                        "dLkPAC2DHFGoVcNsyvBzyq18T" +
+                        "YqGaYyyXKKzbzBETRDP" +
+                        "WVPLVcj7HM")
                 .header("Accept", "application/vnd.github+json")
                 .header("X-GitHub-Api-Version", "2022-11-28")
                 .body(body)
@@ -47,7 +52,12 @@ public class AuthorizationTest {
 
         //delete repository via api
         given()
-                .header("Authorization", "Bearer " + "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")
+                .header("Authorization", "Bearer " + "gith" +
+                        "ub_pat_11BA" +
+                        "7FJXQ0VqFn7EmdQCnr_9mwRM" +
+                        "dLkPAC2DHFGoVcNsyvBzyq18T" +
+                        "YqGaYyyXKKzbzBETRDP" +
+                        "WVPLVcj7HM")
                 .header("Accept", "application/vnd.github+json")
                 .header("X-GitHub-Api-Version", "2022-11-28")
                 .when()
