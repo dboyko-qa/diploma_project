@@ -2,6 +2,7 @@ package tests;
 
 import com.codeborne.selenide.Condition;
 import com.github.javafaker.Faker;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -23,6 +24,7 @@ public class AuthorizationTest {
         $("[name='user-login']").shouldHave(Condition.attribute("content", "DBtest1983"));    }
 
     @Test
+    @Tag("Jenkins")
     void createRepoTest(){
         // create repo via API
         Faker faker = new Faker();
@@ -30,7 +32,7 @@ public class AuthorizationTest {
         System.out.println(repoName);
         String body =String.format("{\"name\":\"%s\",\"description\":\"This is your first repo! \",\"homepage\":\"https://github.com/\",\"private\":false,\"is_template\":true}", repoName);
         given()
-                .header("Authorization", "Bearer " + "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")
+                .header("Authorization", "Bearer " + "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")
                 .header("Accept", "application/vnd.github+json")
                 .header("X-GitHub-Api-Version", "2022-11-28")
                 .body(body)
@@ -45,7 +47,7 @@ public class AuthorizationTest {
 
         //delete repository via api
         given()
-                .header("Authorization", "Bearer " + "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")
+                .header("Authorization", "Bearer " + "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")
                 .header("Accept", "application/vnd.github+json")
                 .header("X-GitHub-Api-Version", "2022-11-28")
                 .when()
