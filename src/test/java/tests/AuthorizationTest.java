@@ -5,17 +5,19 @@ import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static io.restassured.RestAssured.given;
 
-public class AuthorizationTest {
+public class AuthorizationTest extends TestBase{
 
     void login(){
         open("https://github.com/login");
+        sleep(5000);
         $("#login_field").setValue("dbtest1983@gmail.com");
         $("#password").setValue("oqdBkMu6A0");
+        sleep(5000);
         $("[name='commit']").click();
+        sleep(5000);
 
     }
     @Test
