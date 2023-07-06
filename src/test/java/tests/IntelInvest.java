@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.options;
 
-public class IntelInvest {
+public class IntelInvest extends TestBase{
     @Test
     void iiTest(){
         String token = given()

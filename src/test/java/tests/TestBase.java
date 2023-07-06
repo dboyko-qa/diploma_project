@@ -18,7 +18,7 @@ public class TestBase {
     static void beforeAll(){
         if (remote) {
             System.out.println("remote");
-            Configuration.baseUrl="https://github.com";
+            Configuration.baseUrl="https://intelinvest.ru";
             Configuration.pageLoadStrategy="eager";
             Configuration.browser = "chrome";
             Configuration.browserVersion = "100.0";
