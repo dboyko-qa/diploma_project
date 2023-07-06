@@ -4,13 +4,22 @@ import com.codeborne.selenide.Condition;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Cookie;
 
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.restassured.RestAssured.given;
 
 public class AuthorizationTest extends TestBase{
 
     void login(){
+        open("https://github.githubassets.com/favicons/favicon.svg");
+
+                    Cookie cookie = new Cookie("logged_in", "yes");
+                    getWebDriver().manage().addCookie(cookie);
+        cookie = new Cookie("dotcom_user", "dbtest1983@gmail.com");
+        getWebDriver().manage().addCookie(cookie);
+
         open("https://github.com/login");
         sleep(5000);
         $("#login_field").setValue("dbtest1983@gmail.com");
@@ -26,7 +35,7 @@ public class AuthorizationTest extends TestBase{
         $("[name='user-login']").shouldHave(Condition.attribute("content", "DBtest1983"));    }
 
     @Test
-    @Tag("Jenkins")
+
     void createRepoTest(){
         // create repo via API
         Faker faker = new Faker();
