@@ -2,6 +2,7 @@ plugins {
     id 'java-library'
     id 'io.qameta.allure' version '2.10.0'
     id "io.freefair.lombok" version "6.0.0-m2"
+    id 'org.gradle.test-retry' version '1.5.0'
 }
 
 repositories {
@@ -50,6 +51,20 @@ tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform()
 
+    if (System.getProperty("threads") != null) {
+        systemProperties += [
+                'junit.jupiter.execution.parallel.enabled'             : true,
+                'junit.jupiter.execution.parallel.mode.default'        : 'concurrent',
+                'junit.jupiter.execution.parallel.mode.classes.default': 'concurrent',
+                'junit.jupiter.execution.parallel.config.strategy'     : 'custom',
+                'junit.jupiter.execution.parallel.config.custom.class' : 'helpers.CustomThreadsStrategy'
+        ]
+    }
+
+    retry {
+        maxRetries = 2
+        maxFailures = 10
+    }
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
