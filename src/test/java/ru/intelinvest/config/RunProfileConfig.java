@@ -7,7 +7,7 @@ import org.aeonbits.owner.Config;
         "system:properties",
         "classpath:config/{webprofile}.properties",
         "classpath:config/{mobileprofile}.properties",
-        "classpath:config/local.properties"
+        "classpath:config/local.properties",
 })
 
 public interface RunProfileConfig extends Config {
