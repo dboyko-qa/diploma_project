@@ -39,7 +39,8 @@ dependencies {
             "org.slf4j:slf4j-simple:$slf4jVersion",
             'com.github.javafaker:javafaker:1.0.2',
             'org.aeonbits.owner:owner:1.0.12',
-            'org.jsoup:jsoup:1.16.1'
+            'org.jsoup:jsoup:1.16.1',
+            "io.appium:java-client:8.3.0"
     )
 }
 
@@ -49,7 +50,11 @@ tasks.withType(JavaCompile) {
 
 tasks.withType(Test) {
     systemProperties(System.getProperties())
-    useJUnitPlatform()
+    useJUnitPlatform{
+        if (System.getProperty("tag") != null && !System.getProperty("tag").isEmpty()) {
+            includeTags System.getProperty("tag")
+        }
+    }
 
     if (System.getProperty("threads") != null) {
         systemProperties += [
@@ -61,10 +66,11 @@ tasks.withType(Test) {
         ]
     }
 
-    retry {
-        maxRetries = 2
-        maxFailures = 10
-    }
+//    retry {
+//        maxRetries = 2
+//        maxFailures = 10
+//    }
+
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
@@ -76,7 +82,6 @@ tasks.withType(Test) {
 
 task jenkins_test(type: Test) {
     useJUnitPlatform{
-        includeTags("Jenkins")
-        systemProperty "remote", "true"
+        systemProperty "profile", "remote"
     }
 }
