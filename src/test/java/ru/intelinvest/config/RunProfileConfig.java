@@ -32,7 +32,7 @@ public interface RunProfileConfig extends Config {
     String mobileUrl();
 
     //browserstack settings
-    String remoteMobileUrl();
+    String remoteMobileDriverUrl();
     String remoteMobileAPIUrl();
     String bsAppUrl();
     String bsUserName();

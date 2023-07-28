@@ -11,11 +11,11 @@ public class LoginTests extends MobileTestBase{
     public void loginTest(){
         loginActivity.login(App.config.userName(), App.config.userPassword());
         importPortfolioActivity.skip();
-        mainActivity.isPortfolioScreenOpen()
+        mainActivity.isPortfolioScreenOpened()
                     .openMoreScreen();
         settingsActicity.openActivity()
                         .openBasic()
-                        .verifyLoginUser(App.config.userName());registrationScreenTest();
+                        .verifyLoginUser(App.config.userName());
 
     }
 
@@ -23,13 +23,13 @@ public class LoginTests extends MobileTestBase{
     @DisplayName("Verify error message when password is incorrect")
     public void incorrectPasswordTest(){
         loginActivity.login(App.config.userName(), App.config.userPassword() + "1")
-                .isWrongUserOrPasswordMessageExist();
+                .verifyWrongUserOrPasswordMessageShown();
 
     }
 
     @Test
     @DisplayName("Verify that application is opened with Registration screen")
     public void registrationScreenTest(){
-        loginActivity.isRegistrationScreenOpened();
+        loginActivity.verifyRegistrationScreenOpened();
     }
 }

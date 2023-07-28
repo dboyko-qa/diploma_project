@@ -18,7 +18,7 @@ public class MainActivity {
     }
 
     @Step("Verify that screen Портфель is opened")
-    public MainActivity isPortfolioScreenOpen(){
+    public MainActivity isPortfolioScreenOpened(){
         $(AppiumBy.xpath("//*[@text='Портфель']")).should(Condition.exist);
         return this;
     }
@@ -50,7 +50,7 @@ public class MainActivity {
     }
 
     @Step("Verify that asset {0} exists in portfolio")
-    public MainActivity isAssetExistInPortfolio(String shortName){
+    public MainActivity verifyAssetExistInPortfolio(String shortName){
         isElementExist(shortName);
         return this;
 
@@ -58,7 +58,7 @@ public class MainActivity {
 
 
     @Step("Verify that summary statistics lines are shown for portfolio")
-    public MainActivity isSummaryLinesShown() {
+    public MainActivity verifySummaryLinesShown() {
         isElementExist("Стоимость");
         isElementExist("Сум. прибыль");
         isElementExist("Изменение за день");

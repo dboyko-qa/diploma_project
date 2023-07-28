@@ -15,7 +15,6 @@ import java.net.URL;
 import static io.appium.java_client.remote.AutomationName.ANDROID_UIAUTOMATOR2;
 
 public class AppiumDriver implements WebDriverProvider {
-//    private final static MobileDriverConfig mobileDriverConfig = ConfigFactory.create(MobileDriverConfig.class);
 
     public static URL getAppiumServerUrl() {
         try {
@@ -37,7 +36,7 @@ public class AppiumDriver implements WebDriverProvider {
                 .setApp(new File(App.config.mobileAppPath()).getAbsolutePath())
                 .setAppPackage(App.config.mobileAppPackage())
                 .setAppActivity(App.config.mobileAppActivity());
-
+        System.out.println(options);
         return new AndroidDriver(getAppiumServerUrl(), options);
     }
 }
