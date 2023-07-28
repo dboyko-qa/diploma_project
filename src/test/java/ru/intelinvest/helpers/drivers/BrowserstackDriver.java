@@ -10,7 +10,6 @@ import ru.intelinvest.config.RunProfile;
 import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
 
 public class BrowserstackDriver implements WebDriverProvider {
     @Nonnull
@@ -35,15 +34,15 @@ public class BrowserstackDriver implements WebDriverProvider {
         mutableCapabilities.setCapability("build", "browserstack-build-1");
         mutableCapabilities.setCapability("name", "first_test");
 
+
         // Initialise the remote Webdriver using BrowserStack remote URL
         // and desired capabilities defined above
+        System.out.println(mutableCapabilities);
         try {
             return new RemoteWebDriver(
-                    new URL(RunProfile.config.remoteMobileUrl()), mutableCapabilities);
-
+                    new URL(RunProfile.config.remoteMobileDriverUrl()), mutableCapabilities);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
     }
-
 }

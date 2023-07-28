@@ -9,6 +9,6 @@ public class RunProfile {
         return (RunProfile.config.remoteWebDriver() != null && !RunProfile.config.remoteWebDriver().isEmpty());
     }
     public static Boolean isRemoteMobile(){
-        return (RunProfile.config.remoteMobileUrl() != null && !RunProfile.config.remoteMobileUrl().isEmpty());
+        return (RunProfile.config.remoteMobileDriverUrl() != null && !RunProfile.config.remoteMobileDriverUrl().isEmpty());
     }
 }

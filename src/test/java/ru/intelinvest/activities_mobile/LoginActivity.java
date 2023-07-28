@@ -3,7 +3,6 @@ package ru.intelinvest.activities_mobile;
 import com.codeborne.selenide.Condition;
 import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Step;
-import ru.intelinvest.config.App;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -19,13 +18,13 @@ public class LoginActivity {
     }
 
     @Step("Verify that error message about incorrect user or password exists")
-    public LoginActivity isWrongUserOrPasswordMessageExist(){
+    public LoginActivity verifyWrongUserOrPasswordMessageShown(){
         $(AppiumBy.xpath("//*[@text='Неверное имя пользователя или пароль']")).should(Condition.exist);
         return this;
     }
 
     @Step("Verify that screen Регистрация opened")
-    public LoginActivity isRegistrationScreenOpened(){
+    public LoginActivity verifyRegistrationScreenOpened(){
         $(AppiumBy.xpath("//*[@text='Регистрация']")).should(Condition.exist);
         return this;
     }

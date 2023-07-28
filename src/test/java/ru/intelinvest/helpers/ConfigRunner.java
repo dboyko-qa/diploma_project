@@ -9,6 +9,7 @@ import ru.intelinvest.helpers.drivers.BrowserstackDriver;
 import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import ru.intelinvest.helpers.drivers.BrowserstackDriver_fixes;
 
 import java.util.Map;
 
@@ -45,19 +46,22 @@ public class ConfigRunner {
         else {
             Configuration.browser = AppiumDriver.class.getName();
         }
+
         Configuration.browserSize = null;
         Configuration.timeout = 60000;
         Configuration.screenshots = false;
-        }
+    }
 
 
     public static void finishMobile() {
-        Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
 
         String sessionId = sessionId().toString();
         if (RunProfile.isRemoteMobile()) {
             Attach.addVideoBS(sessionId);
+        }
+        else {
+            Attach.screenshotAs("Last screenshot");
         }
         closeWebDriver();
     }
