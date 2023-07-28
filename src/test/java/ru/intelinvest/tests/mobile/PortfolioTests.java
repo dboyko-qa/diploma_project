@@ -38,7 +38,7 @@ public class PortfolioTests extends MobileTestBase{
     }
 
     @BeforeEach
-    public void beforeEach(){
+    public void appLogin(){
         loginActivity.login(App.config.userName(), App.config.userPassword());
 
     }
