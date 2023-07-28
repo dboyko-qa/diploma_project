@@ -1,10 +1,10 @@
 package ru.intelinvest.tests.mobile;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import ru.intelinvest.activities_mobile.ImportPortfolioActivity;
-import ru.intelinvest.activities_mobile.LoginActivity;
-import ru.intelinvest.activities_mobile.MainActivity;
-import ru.intelinvest.activities_mobile.SettingsActivity;
+import ru.intelinvest.activities.ImportPortfolioActivity;
+import ru.intelinvest.activities.LoginActivity;
+import ru.intelinvest.activities.MainActivity;
+import ru.intelinvest.activities.SettingsActivity;
 import ru.intelinvest.helpers.ConfigRunner;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;

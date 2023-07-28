@@ -1,4 +1,4 @@
-package ru.intelinvest.activities_mobile;
+package ru.intelinvest.activities;
 
 import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Step;

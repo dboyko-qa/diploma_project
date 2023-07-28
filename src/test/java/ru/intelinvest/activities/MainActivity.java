@@ -1,4 +1,4 @@
-package ru.intelinvest.activities_mobile;
+package ru.intelinvest.activities;
 
 import com.codeborne.selenide.Condition;
 import io.appium.java_client.AppiumBy;
