@@ -5,9 +5,9 @@ import org.aeonbits.owner.Config;
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",
-        "classpath:config/{webprofile}.properties",
-        "classpath:config/{mobileprofile}.properties",
-        "classpath:config/local.properties",
+        "classpath:config/${webprofile}.properties",
+        "classpath:config/${mobileprofile}.properties",
+        "classpath:config/local.properties"
 })
 
 public interface RunProfileConfig extends Config {
@@ -34,7 +34,7 @@ public interface RunProfileConfig extends Config {
     //browserstack settings
     String remoteMobileUrl();
     String remoteMobileAPIUrl();
-    String appUrl();
+    String bsAppUrl();
     String bsUserName();
     String bsAccessKey();
 }

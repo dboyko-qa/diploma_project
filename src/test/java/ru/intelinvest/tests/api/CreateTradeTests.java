@@ -38,7 +38,7 @@ public class CreateTradeTests extends ApiTestBase{
     @Test
     @DisplayName("Verify that Buy trade can be successfully created")
     public void createBuyTrade(){
-        TradeDto trade = TradesApi.createBuyTrade(stockModel.getId(), 10);
+        TradeDto trade = TradesApi.createBuyTradeDto(stockModel.getId(), 10);
         TradesApi.postTrade(trade, NO_CONTENT_CODE);
 
         step("Verify that trade was added to portfolio", () -> {

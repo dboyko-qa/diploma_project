@@ -37,6 +37,7 @@ public class ConfigRunner {
             Configuration.browserCapabilities = capabilities;
         }
     }
+
     public static void runMobile(){
         if (RunProfile.isRemoteMobile()) {
             Configuration.browser = BrowserstackDriver.class.getName();
@@ -45,7 +46,8 @@ public class ConfigRunner {
             Configuration.browser = AppiumDriver.class.getName();
         }
         Configuration.browserSize = null;
-//        Configuration.screenshots = false;
+        Configuration.timeout = 60000;
+        Configuration.screenshots = false;
         }
 
 

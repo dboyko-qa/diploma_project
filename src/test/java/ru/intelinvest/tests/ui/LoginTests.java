@@ -5,13 +5,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-@Tag("Jenkins")
+import static com.codeborne.selenide.Selenide.sleep;
+
 public class LoginTests extends UiTestBase {
     @Test
     @DisplayName("Verify successful login")
     public void testLogin(){
         mainPage.login(App.config.userName(), App.config.userPassword());
         portfolioPage.verifyOpened();
+
+        sleep(5000);
     }
 
     @Test

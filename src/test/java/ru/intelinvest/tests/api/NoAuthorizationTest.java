@@ -55,7 +55,7 @@ public class NoAuthorizationTest extends ApiTestBase{
     @Test
     @DisplayName("Verify that trade cannot be created without authorization")
     public void tradeByNonAuthorizedUser(){
-        TradeDto trade = TradesApi.createBuyTrade(stockModel.getId(), 10);
+        TradeDto trade = TradesApi.createBuyTradeDto(stockModel.getId(), 10);
 
         given()
                 .spec(SpecsWithoutAuthorization.requestPostWithoutAuthorization)

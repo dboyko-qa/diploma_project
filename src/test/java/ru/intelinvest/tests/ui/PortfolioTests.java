@@ -13,8 +13,6 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Tag("Jenkins")
-
 public class PortfolioTests extends UiTestBase {
     private static Map<AssetModel, Integer> tradesList = Map.of(
             AssetModel.builder().id("1344").ticker("SBER").shortName("Сбербанк").build(), 10,
@@ -24,7 +22,7 @@ public class PortfolioTests extends UiTestBase {
     @BeforeAll
     static void addTradesToPortfolio(){
         for (Map.Entry<AssetModel, Integer> trade: tradesList.entrySet()){
-            TradesApi.postTrade(TradesApi.createBuyTrade(trade.getKey().getId(), trade.getValue()));
+            TradesApi.postTrade(TradesApi.createBuyTradeDto(trade.getKey().getId(), trade.getValue()));
         }
 
     }

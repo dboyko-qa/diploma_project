@@ -47,9 +47,10 @@ gradle clean test
 
 Parameters\
 `-Dtags="('UI','API','ANDROID')"` - to run tests with specific tags. Tags can be listed with comma separator\
-`-Dwebprofile` - to set *.properties file with settings for UI and API tests\
-`-Dmobileprofile` - to set *.properties file with settings for Mobile tests\
-Sample properties files can be found in resources/config package.\
+`-Dwebprofile` - to set *.properties file with settings for UI and API tests (name without extension)\
+`-Dmobileprofile` - to set *.properties file with settings for Mobile tests (name without extension)\
+Sample properties files can be found in resources/config package. Several configuration files can be created for all 
+possible test configurations.\
 
 ## <a name="PropertyFiles">Property files</a>
 
