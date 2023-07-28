@@ -31,7 +31,7 @@ public class PortfolioTests extends MobileTestBase{
     );
 
     @BeforeAll
-    public static void beforeAll(){
+    public static void configurePortfolio(){
         for (TradeModel trade: trades){
             TradesApi.postTrade(TradesApi.createBuyTradeDto(trade.getAsset().getId(), trade.getQuantity()));
         }

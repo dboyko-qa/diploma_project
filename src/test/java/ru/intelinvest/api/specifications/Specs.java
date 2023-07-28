@@ -1,5 +1,8 @@
 package ru.intelinvest.api.specifications;
 
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.filter.log.LogDetail;
+import io.restassured.specification.ResponseSpecification;
 import ru.intelinvest.api.authorization.AuthorizationApi;
 import io.restassured.specification.RequestSpecification;
 import ru.intelinvest.helpers.CustomAllureListener;
@@ -17,4 +20,8 @@ public class Specs {
             .log().all()
             .filter(CustomAllureListener.withCustomTemplates());
 
+    public static ResponseSpecification responceSpec = new ResponseSpecBuilder()
+            .log(LogDetail.STATUS)
+            .log(LogDetail.BODY)
+            .build();
 }

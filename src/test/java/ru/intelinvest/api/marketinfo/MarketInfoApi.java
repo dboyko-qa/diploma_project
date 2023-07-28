@@ -13,7 +13,6 @@ public class MarketInfoApi {
                 .when()
                 .get(String.format(MARKET_INFO_ENDPOINT, id))
                 .then()
-                //.log().all()
                 .extract().as(MarketInfoDto.class);
     }
 }

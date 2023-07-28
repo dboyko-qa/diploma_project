@@ -10,6 +10,7 @@ import ru.intelinvest.consts.ApiConsts;
 import io.qameta.allure.Step;
 import ru.intelinvest.api.specifications.Specs;
 
+import static io.restassured.RestAssured.responseSpecification;
 import static ru.intelinvest.consts.ApiConsts.NO_CONTENT_CODE;
 import static io.restassured.RestAssured.given;
 
@@ -35,6 +36,7 @@ public class DeleteTradeApi {
                 .when()
                 .post(ApiConsts.DELETE_ALL_ENDPOINT)
                 .then()
+                .spec(responseSpecification)
                 .statusCode(resultCode);
     }
 

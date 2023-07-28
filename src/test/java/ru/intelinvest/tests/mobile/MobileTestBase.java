@@ -21,6 +21,7 @@ public class MobileTestBase extends TestBase {
     ImportPortfolioActivity importPortfolioActivity = new ImportPortfolioActivity();
     MainActivity mainActivity = new MainActivity();
     SettingsActivity settingsActicity = new SettingsActivity();
+
     @BeforeAll
     public static void beforeAll(){
         ConfigRunner.runMobile();
@@ -28,13 +29,13 @@ public class MobileTestBase extends TestBase {
     }
 
     @BeforeEach
-    void beforeEach() {
+    public void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         open();
     }
 
     @AfterEach
-    void afterEach() {
+    public void afterEach() {
         ConfigRunner.finishMobile();
 
     }

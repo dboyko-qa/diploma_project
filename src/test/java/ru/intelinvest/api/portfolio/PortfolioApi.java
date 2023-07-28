@@ -4,9 +4,8 @@ import ru.intelinvest.api.authorization.AuthorizationApi;
 import io.qameta.allure.Step;
 import ru.intelinvest.api.specifications.Specs;
 
+import static io.restassured.RestAssured.*;
 import static ru.intelinvest.consts.ApiConsts.*;
-import static io.restassured.RestAssured.get;
-import static io.restassured.RestAssured.given;
 
 public class PortfolioApi {
     @Step("Get overview information for current portfolio")
@@ -21,7 +20,7 @@ public class PortfolioApi {
                 .spec(Specs.requestGetSpec)
                 .get(String.format(PORTFOLIO_OVERVIEW_ENDPOINT, portfolioId))
                 .then()
-                .log().all()
+                .spec(responseSpecification)
                 .statusCode(errorCode)
                 .extract().as(PortfolioOverviewDto.class);
     }
@@ -33,7 +32,7 @@ public class PortfolioApi {
                 .spec(Specs.requestGetSpec)
                 .get(String.format(PORTFOLIO_INFO_ENDPOINT, portfolioId))
                 .then()
-                .log().all()
+                .spec(responseSpecification)
                 .statusCode(errorCode)
                 .extract().as(PortfolioInfoDto.class);
     }
