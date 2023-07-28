@@ -9,6 +9,7 @@ import ru.intelinvest.helpers.drivers.BrowserstackDriver;
 import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import ru.intelinvest.helpers.drivers.BrowserstackDriver_fixes;
 
 import java.util.Map;
 
