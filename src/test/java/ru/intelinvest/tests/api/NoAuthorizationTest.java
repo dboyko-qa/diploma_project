@@ -15,7 +15,6 @@ import org.junit.jupiter.api.Test;
 import static ru.intelinvest.consts.ApiConsts.*;
 import static io.restassured.RestAssured.given;
 
-@Tag("Jenkins")
 
 public class NoAuthorizationTest extends ApiTestBase{
     @Test

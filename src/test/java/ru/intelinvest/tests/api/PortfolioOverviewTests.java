@@ -10,7 +10,6 @@ import static ru.intelinvest.consts.ApiConsts.*;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 
-@Tag("Jenkins")
 
 public class PortfolioOverviewTests extends ApiTestBase{
     @Test

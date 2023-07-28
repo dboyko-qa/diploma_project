@@ -8,6 +8,7 @@ import ru.intelinvest.api.marketinfo.MarketInfoDto;
 import io.qameta.allure.Step;
 import ru.intelinvest.api.specifications.Specs;
 
+import static ru.intelinvest.api.specifications.Specs.responseSpec;
 import static ru.intelinvest.consts.ApiConsts.*;
 import static io.restassured.RestAssured.given;
 
@@ -26,7 +27,7 @@ public class TradesApi {
                 .when()
                 .post(TRADES_ENDPOINT)
                 .then()
-                .log().all()
+                .spec(responseSpec)
                 .statusCode(resultCode)
                 .extract().as(ApiErrorDto.class);
     }

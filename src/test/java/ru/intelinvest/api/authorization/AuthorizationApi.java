@@ -3,7 +3,7 @@ package ru.intelinvest.api.authorization;
 import ru.intelinvest.config.App;
 import ru.intelinvest.helpers.CustomAllureListener;
 
-import static io.restassured.RestAssured.responseSpecification;
+import static ru.intelinvest.api.specifications.Specs.responseSpec;
 import static ru.intelinvest.consts.ApiConsts.LOGIN_ENDPOINT;
 import static io.restassured.RestAssured.given;
 
@@ -22,7 +22,8 @@ public class AuthorizationApi {
                 .when()
                 .post(LOGIN_ENDPOINT)
                 .then()
-                .spec(responseSpecification)
+                .log().status()
+                .log().body()
                 .extract().as(LoginDto.class);
 
     }

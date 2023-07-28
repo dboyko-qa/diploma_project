@@ -12,7 +12,7 @@ import static ru.intelinvest.api.trades.DeleteTradeApi.deleteTrade;
 import static ru.intelinvest.consts.ApiConsts.NO_CONTENT_CODE;
 import static io.restassured.RestAssured.given;
 
-@Tag("Jenkins")
+
 public class DeleteTradesTests extends ApiTestBase{
 
     @Test

@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 import ru.intelinvest.api.specifications.Specs;
 
 import static io.restassured.RestAssured.*;
+import static ru.intelinvest.api.specifications.Specs.responseSpec;
 import static ru.intelinvest.consts.ApiConsts.*;
 
 public class PortfolioApi {
@@ -20,7 +21,7 @@ public class PortfolioApi {
                 .spec(Specs.requestGetSpec)
                 .get(String.format(PORTFOLIO_OVERVIEW_ENDPOINT, portfolioId))
                 .then()
-                .spec(responseSpecification)
+                .spec(responseSpec)
                 .statusCode(errorCode)
                 .extract().as(PortfolioOverviewDto.class);
     }
@@ -32,7 +33,7 @@ public class PortfolioApi {
                 .spec(Specs.requestGetSpec)
                 .get(String.format(PORTFOLIO_INFO_ENDPOINT, portfolioId))
                 .then()
-                .spec(responseSpecification)
+                .spec(responseSpec)
                 .statusCode(errorCode)
                 .extract().as(PortfolioInfoDto.class);
     }

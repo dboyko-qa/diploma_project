@@ -22,7 +22,6 @@ import static ru.intelinvest.consts.ApiConsts.*;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 
-@Tag("Jenkins")
 
 public class CreateTradeTests extends ApiTestBase{
 

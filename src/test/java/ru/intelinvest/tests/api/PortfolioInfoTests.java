@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import static ru.intelinvest.consts.ApiConsts.OK_CODE;
 import static io.qameta.allure.Allure.step;
 
-@Tag("Jenkins")
 
 public class PortfolioInfoTests {
 

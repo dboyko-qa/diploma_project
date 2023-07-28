@@ -20,7 +20,7 @@ public class Specs {
             .log().all()
             .filter(CustomAllureListener.withCustomTemplates());
 
-    public static ResponseSpecification responceSpec = new ResponseSpecBuilder()
+    public static ResponseSpecification responseSpec = new ResponseSpecBuilder()
             .log(LogDetail.STATUS)
             .log(LogDetail.BODY)
             .build();
