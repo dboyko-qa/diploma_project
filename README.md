@@ -114,3 +114,25 @@ D --> H[mobileprofile for Browserstack/Device farm]
 ```
 
 ## <a name="HowToRunInJenkins">How to run in Jenkins</a>
+Tests can be run with parameters. All parameters are described
+<p  align="center">
+<img src="readmeresources/Jenkins_screen_parameters.png" alt="JenkinsBuildParameters" width="950">
+</p>
+
+# <a>Telegram notifications</a>
+After the test run has been finished the notification is sent to telegram. Notifications can be sent to a number of messengers
+<p  align="center">
+<img src="readmeresources/telegram_notification.png" alt="TelegramNotification" width="950">
+</p>
+
+
+# <a>Videos of tests</a>
+Web test:
+<p align="center">
+  <img src="readmeresources/video_selenoid.gif" alt="WebTestVideo">
+</p>
+
+Android mobile test:
+<p align="center">
+  <img src="readmeresources/video_browserstack.gif" alt="AndroidTestVideo">
+</p>
