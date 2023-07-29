@@ -97,7 +97,9 @@ appUrl=
 bsUserName=
 bsAccessKey=
 ```
-Default values are set for parameters for local run.
+Default values are set for parameters for local run.\
+All sensitive data can be set by system variables. In this project no sensitive data is stored in GitHub, but set as 
+system variables for Gradle build.
 
 Possible combinations of test run profiles:
 ```mermaid
