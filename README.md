@@ -116,7 +116,7 @@ D --> H[mobileprofile for Browserstack/Device farm]
 ## <a name="HowToRunInJenkins">How to run in Jenkins</a>
 Tests can be run with parameters. All parameters are described
 <p  align="center">
-<img src="readmeresources/Jenkins_screen_parameters.png" alt="JenkinsBuildParameters" width="950">
+<img src="readmeresources/Jenkins_screen_parameters.png" alt="JenkinsBuildParameters">
 </p>
 
 # <a>Telegram notifications</a>
