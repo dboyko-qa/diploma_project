@@ -23,6 +23,7 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 
 
+@DisplayName("API tests for create trade post request")
 public class CreateTradeTests extends ApiTestBase{
 
     @Test

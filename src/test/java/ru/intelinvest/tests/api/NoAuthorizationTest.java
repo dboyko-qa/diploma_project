@@ -16,6 +16,7 @@ import static ru.intelinvest.consts.ApiConsts.*;
 import static io.restassured.RestAssured.given;
 
 
+@DisplayName("API tests without authorization data for endpoints")
 public class NoAuthorizationTest extends ApiTestBase{
     @Test
     @DisplayName("Get portfolio by non authorized user")

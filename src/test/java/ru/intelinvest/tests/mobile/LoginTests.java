@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.intelinvest.config.App;
 
+@DisplayName("Android tests for login functionality")
 public class LoginTests extends MobileTestBase{
 
     @Test

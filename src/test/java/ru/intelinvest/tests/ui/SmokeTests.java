@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 
+@DisplayName("Web tests: smoke")
 public class SmokeTests extends UiTestBase {
     @Test
-    @Tag("Jenkins")
     @Tag("Smoke")
     @DisplayName("Verify in UI basic application workflow that adds and deletes default share")
     public void baseFlowTest(){

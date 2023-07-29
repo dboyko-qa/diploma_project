@@ -112,3 +112,5 @@ C --> F[webprofile for Selenoid/Docker/browser]
 D --> G[mobileprofile for Android emulator/Appium]
 D --> H[mobileprofile for Browserstack/Device farm]
 ```
+
+## <a name="HowToRunInJenkins">How to run in Jenkins</a>

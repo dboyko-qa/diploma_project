@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@DisplayName("Web tests for portfolio")
 public class PortfolioTests extends UiTestBase {
     private static Map<AssetModel, Integer> tradesList = Map.of(
             AssetModel.builder().id("1344").ticker("SBER").shortName("Сбербанк").build(), 10,

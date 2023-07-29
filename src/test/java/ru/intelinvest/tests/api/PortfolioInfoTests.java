@@ -12,6 +12,7 @@ import static ru.intelinvest.consts.ApiConsts.OK_CODE;
 import static io.qameta.allure.Allure.step;
 
 
+@DisplayName("API tests for portfolio-info endpoint")
 public class PortfolioInfoTests {
 
     @Test

@@ -11,6 +11,8 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 
 
+@DisplayName("API tests for portfolio overview endpoint")
+
 public class PortfolioOverviewTests extends ApiTestBase{
     @Test
     @DisplayName("Get portfolio overview from another user")

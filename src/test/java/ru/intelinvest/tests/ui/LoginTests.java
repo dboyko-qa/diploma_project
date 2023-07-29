@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.sleep;
 
+@DisplayName("Web tests for login functionality")
 public class LoginTests extends UiTestBase {
     @Test
     @DisplayName("Verify successful login")

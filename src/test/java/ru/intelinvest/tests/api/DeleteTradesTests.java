@@ -13,6 +13,7 @@ import static ru.intelinvest.consts.ApiConsts.NO_CONTENT_CODE;
 import static io.restassured.RestAssured.given;
 
 
+@DisplayName("API tests for deleteAll trades post request")
 public class DeleteTradesTests extends ApiTestBase{
 
     @Test

@@ -13,6 +13,7 @@ import ru.intelinvest.models.TradeModel;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@DisplayName("Android tests for portfolio")
 public class PortfolioTests extends MobileTestBase{
     //TODO change way of creating test data to load from json file
     private static List<TradeModel> trades = List.of(
