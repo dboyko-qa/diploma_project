@@ -65,10 +65,10 @@ tasks.withType(Test) {
         ]
     }
 
-//    retry {
-//        maxRetries = 2
-//        maxFailures = 10
-//    }
+    retry {
+        maxRetries = 2
+        maxFailures = 10
+    }
 
     testLogging {
         lifecycle {
