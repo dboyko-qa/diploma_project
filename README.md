@@ -2,24 +2,22 @@
 ![This is an image](/readmeresources/index_logo.png)\
 It is a service for control over the trades in the investment portfolio. 
 
-# <a name="TableOfContents">Table of contents</a>
-
 ## <a name="Description">Description</a>
 
-The test project consists of Web and API tests. (Mobile tests are under development)\
+The test project consists of Web,API and Mobile tests.
 Some technologies and tricks used in the project:
 
 - [x] `Page Object` with steps using `Chain of Invocations`
 - [x] Parametrized tests
 - [x] Parametrized build
 - [x] Different configuration files for test running depending on build parameters
-- [x] Config with `Owner` library
+- [x] Extract config information into .properties files with `Owner` library
 - [x] Use `Lombok` plugin for API DTOs
 - [x] Using request specifications for API tests
 - [x] Allure listeners used for UI and API tests for beautiful reports
 - [x] `Allure TestOps` integration
 - [x] Autotests as test documentation
-- [x] Failing tests retries
+- [x] Flaky tests retries
 - [x] API methods used in UI tests for faster data preparation
 - [x] Used API request and work with local storage for faster user login. 
 Custom extension `@WithLogin` developed.
@@ -37,7 +35,7 @@ The autotests in this project are written in `Java` using `Selenide` framework.\
 `Telegram` - for test results notifications.\
 `Allure TestOps` - as Test Management System.
 
-# <a name="HowToRun">How to run</a>
+# <a name="HowToRun">Tests run and settings</a>
 
 ## <a name="HowToRunCommandLine">How to run tests from command line</a>
 To run all tests with default parameters locally
@@ -113,26 +111,42 @@ D --> G[mobileprofile for Android emulator/Appium]
 D --> H[mobileprofile for Browserstack/Device farm]
 ```
 
-# <a>Automated tests running</a>
-- Tests run with parameter has been set up in [Jenkins](#HowToRunInJenkins) .
-- Allure reports are automatically built. Reports contain extensive information about test run:
+# <a>Automated tests running in cloud infrastructure</a>
+- Tests run with parameter has been set up in [Jenkins](#HowToRunInJenkins)
+- [Allure reports](#Allure) are automatically built. Reports contain extensive information about test run:
 browser logs, API logs, screenshots, [video records](#Video).
-- Test running was integrated with AllureTestOps: to build live test documentation,
+- Test running has been integrated with [AllureTestOps](#AllureTestOps): to build live test documentation,
 to run tests from AllureTestOps, review status of tests and use other options of the TMS.
-- [Telegram notifications](#TelegramNotifications) after tests finish were set up. 
+- [Telegram notifications](#TelegramNotifications) sending after tests finish has been set up.
+- [Jira integration](#Jira) has been set up.
 
-## <a name="HowToRunInJenkins">How to run in Jenkins</a>
+## <a name="HowToRunInJenkins">Jenkins settings</a>
 Tests can be run with parameters. All parameters are described
 <p  align="center">
 <img src="readmeresources/Jenkins_screen_parameters.png" alt="JenkinsBuildParameters">
 </p>
 
-## Allure Report
+## <a name="Allure">Allure Report</a>
+<p  align="center">
+<img src="readmeresources/Allure_Report_Summary.png" alt="AllureReport">
+</p>
 
-## Allure TestOps Dashboard
-
-## Allure TestOps Test Cases
+## <a name="AllureTestOps">Allure TestOps Dashboard</a>
 Note that test cases in AllureTestOps are automatically imported from auto tests
+Flat list of test cases in AllureTestOps
+<p  align="center">
+<img src="readmeresources/ATO_testcases.png" alt="AllureTestOpsTestCases">
+</p>
+
+Test cases grouped by Feature in AllureTestOps
+<p  align="center">
+<img src="readmeresources/ATO_features.png" alt="AllureTestOpsFeatures">
+</p>
+
+Test cases grouped by Suites in AllureTestOps
+<p  align="center">
+<img src="readmeresources/ATO_suites.png" alt="AllureTestOpsSuites">
+</p>
 
 ## <a name="TelegramNotifications">Telegram notifications</a>
 After the test run has been finished the notification is sent to telegram. Notifications can be sent to a number of messengers
@@ -141,7 +155,10 @@ After the test run has been finished the notification is sent to telegram. Notif
 </p>
 
 
-## <a name="Video">Videos of tests</a>
+## <a name="Jira">Jira integration</a>
+
+
+## <a name="Video">Video of tests</a>
 Web test:
 <p align="center">
   <img src="readmeresources/video_selenoid.gif" alt="WebTestVideo">
