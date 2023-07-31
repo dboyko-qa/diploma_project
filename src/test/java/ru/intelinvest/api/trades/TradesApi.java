@@ -7,6 +7,11 @@ import ru.intelinvest.api.marketinfo.MarketInfoApi;
 import ru.intelinvest.api.marketinfo.MarketInfoDto;
 import io.qameta.allure.Step;
 import ru.intelinvest.api.specifications.Specs;
+import ru.intelinvest.models.AssetModel;
+import ru.intelinvest.models.TradeModel;
+
+import java.util.List;
+import java.util.Map;
 
 import static ru.intelinvest.api.specifications.Specs.responseSpec;
 import static ru.intelinvest.consts.ApiConsts.*;
@@ -31,6 +36,14 @@ public class TradesApi {
                 .statusCode(resultCode)
                 .extract().as(ApiErrorDto.class);
     }
+
+    @Step("Add several assets of different types to portfolio")
+    public static void addMultipleTrades(List<TradeModel> trades){
+        for (TradeModel trade: trades){
+            TradesApi.postTrade(TradesApi.createBuyTradeDto(trade.getAsset().getId(), trade.getQuantity()));
+        }
+    }
+
 
     @Step("Create Buy trade for asset id = {0} with quantity {1}")
     public static TradeDto createBuyTradeDto(String id, Integer quantity) {

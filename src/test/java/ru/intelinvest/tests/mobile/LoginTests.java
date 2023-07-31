@@ -1,8 +1,11 @@
 package ru.intelinvest.tests.mobile;
 
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.intelinvest.config.App;
+
+@Feature("Login")
 
 @DisplayName("Android tests for login functionality")
 public class LoginTests extends MobileTestBase{

@@ -9,6 +9,9 @@ import ru.intelinvest.api.portfolio.RowsPortfolioDto;
 import ru.intelinvest.consts.ApiConsts;
 import io.qameta.allure.Step;
 import ru.intelinvest.api.specifications.Specs;
+import ru.intelinvest.models.TradeModel;
+
+import java.util.List;
 
 import static ru.intelinvest.api.specifications.Specs.responseSpec;
 import static ru.intelinvest.consts.ApiConsts.NO_CONTENT_CODE;
@@ -52,4 +55,13 @@ public class DeleteTradeApi {
         }
 
     }
+
+    @Step("Delete assets from portfolio that were added previously")
+    public static void deleteMultipleTrades(List<TradeModel> trades){
+        for (TradeModel trade: trades){
+            DeleteTradeApi.deleteTrade(trade.getAsset().getId());
+        }
+
+    }
+
 }

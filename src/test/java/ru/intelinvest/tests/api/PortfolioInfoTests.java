@@ -1,5 +1,6 @@
 package ru.intelinvest.tests.api;
 
+import io.qameta.allure.Feature;
 import ru.intelinvest.api.authorization.AuthorizationApi;
 import ru.intelinvest.api.portfolio.PortfolioApi;
 import ru.intelinvest.api.portfolio.PortfolioInfoDto;
@@ -13,6 +14,8 @@ import static io.qameta.allure.Allure.step;
 
 
 @DisplayName("API tests for portfolio-info endpoint")
+@Feature("Portfolio")
+
 public class PortfolioInfoTests {
 
     @Test

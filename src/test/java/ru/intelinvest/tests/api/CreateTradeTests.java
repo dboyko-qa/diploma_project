@@ -1,5 +1,6 @@
 package ru.intelinvest.tests.api;
 
+import io.qameta.allure.Feature;
 import ru.intelinvest.api.ApiErrorDto;
 import ru.intelinvest.api.enums.Assets;
 import ru.intelinvest.api.enums.Operations;
@@ -24,6 +25,8 @@ import static io.restassured.RestAssured.given;
 
 
 @DisplayName("API tests for create trade post request")
+@Feature("Trades")
+
 public class CreateTradeTests extends ApiTestBase{
 
     @Test

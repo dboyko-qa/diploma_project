@@ -1,5 +1,6 @@
 package ru.intelinvest.tests.mobile;
 
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -14,28 +15,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @DisplayName("Android tests for portfolio")
+@Feature("Portfolio")
 public class PortfolioTests extends MobileTestBase{
-    //TODO change way of creating test data to load from json file
-    private static List<TradeModel> trades = List.of(
-        TradeModel.builder().asset(
-                AssetModel.builder().id("1344").ticker("SBER").shortName("Сбербанк").assetType(Assets.STOCK).build())
-                .quantity(10)
-                .build(),
-        TradeModel.builder().asset(
-                AssetModel.builder().id("1075").ticker("GAZP").shortName("ГАЗПРОМ ао").assetType(Assets.STOCK).build())
-                .quantity(10)
-                .build(),
-        TradeModel.builder().asset(
-                AssetModel.builder().id("17803").ticker("SU26230RMFS1").shortName("ОФЗ 26230").assetType(Assets.BOND).build())
-                .quantity(10)
-                .build()
-    );
 
     @BeforeAll
     public static void configurePortfolio(){
-        for (TradeModel trade: trades){
-            TradesApi.postTrade(TradesApi.createBuyTradeDto(trade.getAsset().getId(), trade.getQuantity()));
-        }
+        TradesApi.addMultipleTrades(trades);
     }
 
     @BeforeEach

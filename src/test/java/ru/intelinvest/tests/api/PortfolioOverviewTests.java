@@ -1,5 +1,6 @@
 package ru.intelinvest.tests.api;
 
+import io.qameta.allure.Feature;
 import ru.intelinvest.api.portfolio.PortfolioApi;
 import ru.intelinvest.config.App;
 import org.junit.jupiter.api.DisplayName;
@@ -12,6 +13,7 @@ import static io.restassured.RestAssured.given;
 
 
 @DisplayName("API tests for portfolio overview endpoint")
+@Feature("Portfolio")
 
 public class PortfolioOverviewTests extends ApiTestBase{
     @Test

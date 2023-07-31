@@ -1,5 +1,6 @@
 package ru.intelinvest.tests.ui;
 
+import io.qameta.allure.Feature;
 import ru.intelinvest.api.trades.DeleteTradeApi;
 import ru.intelinvest.api.trades.TradesApi;
 import ru.intelinvest.helpers.WithLogin;
@@ -8,11 +9,13 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import ru.intelinvest.consts.UiConsts;
+import ru.intelinvest.models.TradeModel;
 
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Feature("Portfolio")
 @DisplayName("Web tests for portfolio")
 public class PortfolioTests extends UiTestBase {
     private static Map<AssetModel, Integer> tradesList = Map.of(
@@ -22,17 +25,12 @@ public class PortfolioTests extends UiTestBase {
 
     @BeforeAll
     static void addTradesToPortfolio(){
-        for (Map.Entry<AssetModel, Integer> trade: tradesList.entrySet()){
-            TradesApi.postTrade(TradesApi.createBuyTradeDto(trade.getKey().getId(), trade.getValue()));
-        }
-
+        TradesApi.addMultipleTrades(trades);
     }
 
     @AfterAll
     static void deleteAllTradesFromPortfolio(){
-        for (Map.Entry<AssetModel, Integer> trade: tradesList.entrySet()){
-            DeleteTradeApi.deleteTrade(trade.getKey().getId());
-        }
+        DeleteTradeApi.deleteMultipleTrades(trades);
     }
 
     @ValueSource(strings = {
@@ -64,9 +62,9 @@ public class PortfolioTests extends UiTestBase {
     @WithLogin
     @DisplayName("Verify that added stocks and bonds are shown in the table")
     public void portfolioInfoWindowTest(){
-        ArrayList<String> shortNamesExpected = new ArrayList(tradesList.keySet().stream().map(AssetModel::getShortName)
-                .collect(Collectors.toList()));
-        ArrayList<String> tickersExpected = new ArrayList(tradesList.keySet().stream().map(AssetModel::getTicker)
+        ArrayList<String> shortNamesExpected = new ArrayList(trades.stream().map(TradeModel::getAsset).map(AssetModel::getShortName)
+                .collect(Collectors.toList()));;
+        ArrayList<String> tickersExpected = new ArrayList(trades.stream().map(TradeModel::getAsset).map(AssetModel::getTicker)
                 .collect(Collectors.toList()));
 
         portfolioPage.openPage()

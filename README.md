@@ -113,20 +113,35 @@ D --> G[mobileprofile for Android emulator/Appium]
 D --> H[mobileprofile for Browserstack/Device farm]
 ```
 
+# <a>Automated tests running</a>
+- Tests run with parameter has been set up in [Jenkins](#HowToRunInJenkins) .
+- Allure reports are automatically built. Reports contain extensive information about test run:
+browser logs, API logs, screenshots, [video records](#Video).
+- Test running was integrated with AllureTestOps: to build live test documentation,
+to run tests from AllureTestOps, review status of tests and use other options of the TMS.
+- [Telegram notifications](#TelegramNotifications) after tests finish were set up. 
+
 ## <a name="HowToRunInJenkins">How to run in Jenkins</a>
 Tests can be run with parameters. All parameters are described
 <p  align="center">
 <img src="readmeresources/Jenkins_screen_parameters.png" alt="JenkinsBuildParameters">
 </p>
 
-# <a>Telegram notifications</a>
+## Allure Report
+
+## Allure TestOps Dashboard
+
+## Allure TestOps Test Cases
+Note that test cases in AllureTestOps are automatically imported from auto tests
+
+## <a name="TelegramNotifications">Telegram notifications</a>
 After the test run has been finished the notification is sent to telegram. Notifications can be sent to a number of messengers
 <p  align="center">
 <img src="readmeresources/telegram_notification.png" alt="TelegramNotification" >
 </p>
 
 
-# <a>Videos of tests</a>
+## <a name="Video">Videos of tests</a>
 Web test:
 <p align="center">
   <img src="readmeresources/video_selenoid.gif" alt="WebTestVideo">

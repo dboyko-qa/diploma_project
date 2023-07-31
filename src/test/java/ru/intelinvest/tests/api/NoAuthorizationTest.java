@@ -1,5 +1,6 @@
 package ru.intelinvest.tests.api;
 
+import io.qameta.allure.Feature;
 import ru.intelinvest.api.authorization.AuthorizationApi;
 import ru.intelinvest.api.marketinfo.MarketInfoApi;
 import ru.intelinvest.api.marketinfo.MarketInfoDto;
@@ -17,6 +18,8 @@ import static io.restassured.RestAssured.given;
 
 
 @DisplayName("API tests without authorization data for endpoints")
+@Feature("Authorization")
+
 public class NoAuthorizationTest extends ApiTestBase{
     @Test
     @DisplayName("Get portfolio by non authorized user")
