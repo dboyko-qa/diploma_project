@@ -143,7 +143,7 @@ Test cases grouped by Feature in AllureTestOps
 
 Test cases grouped by Suites in AllureTestOps
 <p  align="center">
-<img src="readmeresources/ATO_suites.png" alt="AllureTestOpsSuites">
+<img src="readmeresources/ATO_testsuites.png" alt="AllureTestOpsSuites">
 </p>
 
 ## <a name="TelegramNotifications">Telegram notifications</a>
