@@ -1,26 +1,33 @@
 # Test automation project for [IntelInvest.ru](https://intelinvest.ru)
 ![This is an image](/readmeresources/index_logo.png)\
-It is a service for control over the trades in the investment portfolio. 
+IntelInvest is a service for control over the trades in the investment portfolio. 
 
-## <a name="Description">Description</a>
+# <a name="Description">Description</a>
 
-The test project consists of Web,API and Mobile tests.
+The test project has been developed to demonstrate fully functioning integrated process of automated testing.
+Test framework contains Web,API and Mobile tests.
 Some technologies and tricks used in the project:
 
 - [x] `Page Object` with steps using `Chain of Invocations`
 - [x] Parametrized tests
-- [x] Parametrized build
 - [x] Different configuration files for test running depending on build parameters
 - [x] Extract config information into .properties files with `Owner` library
 - [x] Use `Lombok` plugin for API DTOs
 - [x] Using request specifications for API tests
-- [x] Allure listeners used for UI and API tests for beautiful reports
-- [x] `Allure TestOps` integration
-- [x] Autotests as test documentation
-- [x] Flaky tests retries
+- [x] `Allure` listeners used for UI and API tests for beautiful reports
 - [x] API methods used in UI tests for faster data preparation
-- [x] Used API request and work with local storage for faster user login. 
-Custom extension `@WithLogin` developed.
+- [x] Flaky tests retries
+- [x] Used API request and work with local storage for faster user login.
+  Custom extension `@WithLogin` developed.
+
+## <a>Automated tests running in cloud infrastructure</a>
+- Tests run with parameter has been set up in [Jenkins](#HowToRunInJenkins)
+- [Allure reports](#Allure) are automatically built. Reports contain extensive information about test run:
+  browser logs, API logs, screenshots, [video records](#Video).
+- Test running has been integrated with [AllureTestOps](#AllureTestOps): to use autotests as test documentation,to build live test documentation,
+  to run tests from AllureTestOps, review status of tests and use other options of the TMS.
+- [Telegram notifications](#TelegramNotifications) sending after tests finish has been set up.
+- [Jira integration](#Jira) has been set up.
 
 ## Tools used:
 ![This is an image](/readmeresources/Java.png)![This is an image](/readmeresources/Gradle.png)![This is an image](/readmeresources/Intelij_IDEA.png)![This is an image](/readmeresources/Selenide.png)![This is an image](/readmeresources/Rest-Assured.png)![This is an image](/readmeresources/appium.png) ![This is an image](/readmeresources/androidstudio.png)![This is an image](/readmeresources/Selenoid.png)![This is an image](/readmeresources/JUnit5.png)![This is an image](/readmeresources/Jenkins.png)![This is an image](/readmeresources/Allure_Report.png)![This is an image](/readmeresources/AllureTestOps.png)![This is an image](/readmeresources/Telegram.png)![This is an image](/readmeresources/Jira.png)</br></br>
@@ -96,7 +103,7 @@ bsUserName=
 bsAccessKey=
 ```
 Default values are set for parameters for local run.\
-All sensitive data can be set by system variables. In this project no sensitive data is stored in GitHub, but set as 
+All build parameters can be set either in .properties files or by system properties. In this project no sensitive data is stored in GitHub, but set as 
 system variables for Gradle build.
 
 Possible combinations of test run profiles:
@@ -110,15 +117,6 @@ C --> F[webprofile for Selenoid/Docker/browser]
 D --> G[mobileprofile for Android emulator/Appium]
 D --> H[mobileprofile for Browserstack/Device farm]
 ```
-
-# <a>Automated tests running in cloud infrastructure</a>
-- Tests run with parameter has been set up in [Jenkins](#HowToRunInJenkins)
-- [Allure reports](#Allure) are automatically built. Reports contain extensive information about test run:
-browser logs, API logs, screenshots, [video records](#Video).
-- Test running has been integrated with [AllureTestOps](#AllureTestOps): to build live test documentation,
-to run tests from AllureTestOps, review status of tests and use other options of the TMS.
-- [Telegram notifications](#TelegramNotifications) sending after tests finish has been set up.
-- [Jira integration](#Jira) has been set up.
 
 ## <a name="HowToRunInJenkins">Jenkins settings</a>
 Tests can be run with parameters. All parameters are described
@@ -156,6 +154,10 @@ After the test run has been finished the notification is sent to telegram. Notif
 
 
 ## <a name="Jira">Jira integration</a>
+Test cases and results of tests launches have been integrated in Jira to provide correct and fully clear QA process.
+<p  align="center">
+<img src="readmeresources/Jira_integration.png" alt="JiraIntegration" >
+</p>
 
 
 ## <a name="Video">Video of tests</a>
