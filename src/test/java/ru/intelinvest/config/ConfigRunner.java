@@ -27,9 +27,9 @@ public class ConfigRunner {
     public static void runWeb() {
         Configuration.baseUrl = App.config.webUrl();
 
-        Configuration.browser = RunProfile.config.browser();
-        Configuration.browserVersion = RunProfile.config.browserVersion();
-        Configuration.browserSize = RunProfile.config.browserSize();
+        Configuration.browser = Web.config.browser();
+        Configuration.browserVersion = Web.config.browserVersion();
+        Configuration.browserSize = Web.config.browserSize();
 
         if (isRemoteWeb()) {
             Configuration.remote = Selenoid.config.remoteWebDriver();

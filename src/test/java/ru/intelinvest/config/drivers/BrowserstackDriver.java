@@ -6,7 +6,7 @@ import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import ru.intelinvest.config.BrowserStack;
-import ru.intelinvest.config.RunProfile;
+import ru.intelinvest.config.Mobile;
 
 import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
@@ -27,8 +27,8 @@ public class BrowserstackDriver implements WebDriverProvider {
         mutableCapabilities.setCapability("app", BrowserStack.config.appUrl());
 
         // Specify device and os_version for testing
-        mutableCapabilities.setCapability("device", RunProfile.config.mobileDeviceName());
-        mutableCapabilities.setCapability("os_version", RunProfile.config.mobileVersion());
+        mutableCapabilities.setCapability("device", Mobile.config.mobileDeviceName());
+        mutableCapabilities.setCapability("os_version", Mobile.config.mobileVersion());
 
         // Set other BrowserStack capabilities
         mutableCapabilities.setCapability("project", "First Java Project");

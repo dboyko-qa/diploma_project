@@ -2,7 +2,7 @@ package ru.intelinvest.config.drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
 import ru.intelinvest.config.App;
-import ru.intelinvest.config.RunProfile;
+import ru.intelinvest.config.Mobile;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.openqa.selenium.Capabilities;
@@ -18,7 +18,7 @@ public class AppiumDriver implements WebDriverProvider {
 
     public static URL getAppiumServerUrl() {
         try {
-            return new URL(RunProfile.config.mobileUrl());
+            return new URL(Mobile.config.mobileUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -30,9 +30,9 @@ public class AppiumDriver implements WebDriverProvider {
         options.merge(capabilities);
 
         options.setAutomationName(ANDROID_UIAUTOMATOR2)
-                .setPlatformName(RunProfile.config.mobilePlatformName())
-                .setDeviceName(RunProfile.config.mobileDeviceName())
-                .setPlatformVersion(RunProfile.config.mobileVersion())
+                .setPlatformName(Mobile.config.mobilePlatformName())
+                .setDeviceName(Mobile.config.mobileDeviceName())
+                .setPlatformVersion(Mobile.config.mobileVersion())
                 .setApp(new File(App.config.mobileAppPath()).getAbsolutePath())
                 .setAppPackage(App.config.mobileAppPackage())
                 .setAppActivity(App.config.mobileAppActivity());
