@@ -7,11 +7,9 @@ import ru.intelinvest.api.marketinfo.MarketInfoApi;
 import ru.intelinvest.api.marketinfo.MarketInfoDto;
 import io.qameta.allure.Step;
 import ru.intelinvest.api.specifications.Specs;
-import ru.intelinvest.models.AssetModel;
 import ru.intelinvest.models.TradeModel;
 
 import java.util.List;
-import java.util.Map;
 
 import static ru.intelinvest.api.specifications.Specs.responseSpec;
 import static ru.intelinvest.consts.ApiConsts.*;
@@ -20,12 +18,12 @@ import static io.restassured.RestAssured.given;
 public class TradesApi {
 
     @Step("Add assets to portfolio")
-    public static void postTrade(TradeDto trade){
+    public static void postSuccessfulTrade(TradeDto trade) {
         postTrade(trade, NO_CONTENT_CODE);
     }
 
     @Step("Add assets to portfolio and verify result code {1}")
-    public static ApiErrorDto postTrade(TradeDto trade, int resultCode){
+    public static ApiErrorDto postTrade(TradeDto trade, int resultCode) {
         return given()
                 .spec(Specs.requestPostSpec)
                 .body(trade)
@@ -38,9 +36,9 @@ public class TradesApi {
     }
 
     @Step("Add several assets of different types to portfolio")
-    public static void addMultipleTrades(List<TradeModel> trades){
-        for (TradeModel trade: trades){
-            TradesApi.postTrade(TradesApi.createBuyTradeDto(trade.getAsset().getId(), trade.getQuantity()));
+    public static void addMultipleTrades(List<TradeModel> trades) {
+        for (TradeModel trade : trades) {
+            TradesApi.postSuccessfulTrade(TradesApi.createBuyTradeDto(trade.getAsset().getId(), trade.getQuantity()));
         }
     }
 
@@ -51,7 +49,7 @@ public class TradesApi {
     }
 
     @Step("Create trade for asset id = {0} with quantity {1}")
-    public static TradeDto createTradeDto(Operations operation, String id, Integer quantity){
+    public static TradeDto createTradeDto(Operations operation, String id, Integer quantity) {
         MarketInfoDto marketInfo = MarketInfoApi.getMarketInfo(id);
 
         Float moneyAmount = Float.parseFloat(marketInfo.getShare().getBigDecimalPrice()) * quantity;
@@ -64,9 +62,9 @@ public class TradesApi {
                 .moneyAmount(moneyAmount.toString())
                 .build();
 
-        if (marketInfo.getShare().getType().equals(Assets.BOND.toString())){
+        if (marketInfo.getShare().getType().equals(Assets.BOND.toString())) {
             tradeFields.setNkd(marketInfo.getShare().getAccruedint().split(" ")[1]);
-            tradeFields.setFacevalue(marketInfo.getShare().getFacevalue().split(" ")[1]);
+            tradeFields.setFaceValue(marketInfo.getShare().getFaceValue().split(" ")[1]);
         }
 
         TradeDto trade = TradeDto.builder()

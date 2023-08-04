@@ -1,11 +1,11 @@
 package ru.intelinvest.api;
 
-import io.qameta.allure.internal.shadowed.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@JsonIgnoreProperties(ignoreUnknown = true)
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiErrorDto {
-    String errorCode;
-    String message;
+    private String errorCode;
+    private String message;
 }

@@ -23,7 +23,7 @@ import static io.restassured.RestAssured.given;
 public class NoAuthorizationTest extends ApiTestBase{
     @Test
     @DisplayName("Get portfolio by non authorized user")
-    public void getPortfolioByNonAuthorizedUser(){
+    public void getPortfolioByNonAuthorizedUserTest(){
         given()
                 .spec(SpecsWithoutAuthorization.requestGetWithoutAuthorization)
                 .when()
@@ -35,7 +35,7 @@ public class NoAuthorizationTest extends ApiTestBase{
 
     @Test
     @DisplayName("Test that delete by unauthorized user is forbidden")
-    public void deleteTradeByUnauthorizedUser(){
+    public void deleteTradeByUnauthorizedUserTest(){
         MarketInfoDto marketInfo = MarketInfoApi.getMarketInfo(stockModel.getId());
 
         DeleteTradeRequestDto deleteTradeRequest = DeleteTradeRequestDto.builder()
@@ -57,7 +57,7 @@ public class NoAuthorizationTest extends ApiTestBase{
 
     @Test
     @DisplayName("Verify that trade cannot be created without authorization")
-    public void tradeByNonAuthorizedUser(){
+    public void tradeByNonAuthorizedUserTest(){
         TradeDto trade = TradesApi.createBuyTradeDto(stockModel.getId(), 10);
 
         given()

@@ -1,13 +1,11 @@
 package ru.intelinvest.pages.components;
 
 import io.qameta.allure.Step;
+import ru.intelinvest.consts.UiConsts;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class LeftMenuComponent {
-    //constants for menu names
-    public final String MARKET = "Рынок",
-                        TRADES = "Сделки";
 
     @Step("Open {itemName} screen")
     private void openLeftMenuItem(String itemName){
@@ -15,13 +13,13 @@ public class LeftMenuComponent {
     }
 
     public LeftMenuComponent openTradesPage(){
-        openLeftMenuItem(TRADES);
+        openLeftMenuItem(UiConsts.TRADES);
         return this;
     }
 
     @Step("Open 'Поиск бумаги' screen")
     public LeftMenuComponent openShareInfoPage(){
-        openLeftMenuItem(MARKET);
+        openLeftMenuItem(UiConsts.MARKET);
         $("[href='#/share-info']").click();
         return this;
     }

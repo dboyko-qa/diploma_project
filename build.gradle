@@ -39,7 +39,9 @@ dependencies {
             "org.slf4j:slf4j-simple:$slf4jVersion",
             'com.github.javafaker:javafaker:1.0.2',
             'org.aeonbits.owner:owner:1.0.12',
-            "io.appium:java-client:8.3.0"
+            "io.appium:java-client:8.3.0",
+            'com.google.code.gson:gson:2.10.1'
+
     )
 }
 
@@ -61,7 +63,9 @@ tasks.withType(Test) {
                 'junit.jupiter.execution.parallel.mode.default'        : 'concurrent',
                 'junit.jupiter.execution.parallel.mode.classes.default': 'concurrent',
                 'junit.jupiter.execution.parallel.config.strategy'     : 'custom',
-                'junit.jupiter.execution.parallel.config.custom.class' : 'helpers.CustomThreadsStrategy'
+                'junit.jupiter.execution.parallel.config.custom.class' : 'helpers.CustomThreadsStrategy',
+                'junit.jupiter.execution.parallel.config.fixed.max-pool-size' : 'maxPoolSize',
+                'junit.jupiter.execution.parallel.config.fixed.parallelism' : 'threads.toInteger()'
         ]
     }
 

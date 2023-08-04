@@ -1,4 +1,4 @@
-package ru.intelinvest.helpers.drivers;
+package ru.intelinvest.config.drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
 import ru.intelinvest.config.App;

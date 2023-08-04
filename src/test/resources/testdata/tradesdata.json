@@ -1,0 +1,29 @@
+[
+  {
+    "asset": {
+      "id": "1344",
+      "ticker": "SBER",
+      "shortName": "Сбербанк",
+      "assetType": "STOCK"
+    },
+    "quantity": 10
+  },
+  {
+    "asset": {
+      "id": "1075",
+      "ticker": "GAZP",
+      "shortName": "ГАЗПРОМ ао",
+      "assetType": "STOCK"
+    },
+    "quantity": 10
+  },
+  {
+    "asset": {
+      "id": "17803",
+      "ticker": "SU26230RMFS1",
+      "shortName": "ОФЗ 26230",
+      "assetType": "BOND"
+    },
+    "quantity": 10
+  }
+]

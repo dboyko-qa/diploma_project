@@ -17,8 +17,6 @@ public interface RunProfileConfig extends Config {
     String browserVersion();
     @DefaultValue("1920x1080")
     String browserSize();
-    String remoteWebDriver();
-    String remoteUrl();
 
 
     //mobile tests settings
@@ -31,10 +29,4 @@ public interface RunProfileConfig extends Config {
     @DefaultValue("http://localhost:4723")
     String mobileUrl();
 
-    //browserstack settings
-    String remoteMobileDriverUrl();
-    String remoteMobileAPIUrl();
-    String bsAppUrl();
-    String bsUserName();
-    String bsAccessKey();
 }

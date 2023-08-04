@@ -1,10 +1,11 @@
-package ru.intelinvest.helpers.drivers;
+package ru.intelinvest.config.drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import ru.intelinvest.config.BrowserStack;
 import ru.intelinvest.config.RunProfile;
 
 import javax.annotation.Nonnull;
@@ -19,11 +20,11 @@ public class BrowserstackDriver implements WebDriverProvider {
         mutableCapabilities.merge(capabilities);
 
         // Set your access credentials
-        mutableCapabilities.setCapability("browserstack.user", RunProfile.config.bsUserName());
-        mutableCapabilities.setCapability("browserstack.key", RunProfile.config.bsAccessKey());
+        mutableCapabilities.setCapability("browserstack.user", BrowserStack.config.userName());
+        mutableCapabilities.setCapability("browserstack.key", BrowserStack.config.accessKey());
 
         // Set URL of the application under test
-        mutableCapabilities.setCapability("app", RunProfile.config.bsAppUrl());
+        mutableCapabilities.setCapability("app", BrowserStack.config.appUrl());
 
         // Specify device and os_version for testing
         mutableCapabilities.setCapability("device", RunProfile.config.mobileDeviceName());
@@ -40,7 +41,7 @@ public class BrowserstackDriver implements WebDriverProvider {
         System.out.println(mutableCapabilities);
         try {
             return new RemoteWebDriver(
-                    new URL(RunProfile.config.remoteMobileDriverUrl()), mutableCapabilities);
+                    new URL(BrowserStack.config.remoteDriverUrl()), mutableCapabilities);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

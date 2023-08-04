@@ -7,14 +7,15 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Selenide.$;
 
 public class SettingsActivity {
+
     @Step("Open screen Настройки")
-    public SettingsActivity openActivity(){
+    public SettingsActivity openActivity() {
         $(AppiumBy.xpath("//*[@text='Настройки']")).click();
         return this;
     }
 
     @Step("Open screen Основные")
-    public SettingsActivity openBasic(){
+    public SettingsActivity openBasic() {
         $(AppiumBy.xpath("//*[@text='Основные']")).click();
         return this;
     }

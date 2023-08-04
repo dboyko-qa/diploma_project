@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class MainPage {
 
-    static final String LOGIN_ERROR_MESSAGE="Неверное имя пользователя или пароль";
+    private static final String LOGIN_ERROR_MESSAGE="Неверное имя пользователя или пароль";
 
     SelenideElement errorMessageLabel = $(".modal-text-error");
 

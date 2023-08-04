@@ -9,13 +9,14 @@ import static ru.intelinvest.api.specifications.Specs.responseSpec;
 import static ru.intelinvest.consts.ApiConsts.*;
 
 public class PortfolioApi {
+
     @Step("Get overview information for current portfolio")
-    public static PortfolioOverviewDto getPortfolioOverview(){
+    public static PortfolioOverviewDto getCurrentPortfolioOverview() {
         return getPortfolioOverview(AuthorizationApi.authInfo.getUser().getCurrentPortfolioId(), OK_CODE);
     }
 
     @Step("Get overview information for portfolio with id {0}")
-    public static PortfolioOverviewDto getPortfolioOverview(Integer portfolioId, int errorCode){
+    public static PortfolioOverviewDto getPortfolioOverview(Integer portfolioId, int errorCode) {
 
         return given()
                 .spec(Specs.requestGetSpec)
@@ -27,7 +28,7 @@ public class PortfolioApi {
     }
 
     @Step("Get overview information for portfolio with id {0}")
-    public static PortfolioInfoDto getPortfolioInfo(Integer portfolioId, int errorCode){
+    public static PortfolioInfoDto getPortfolioInfo(Integer portfolioId, int errorCode) {
 
         return given()
                 .spec(Specs.requestGetSpec)

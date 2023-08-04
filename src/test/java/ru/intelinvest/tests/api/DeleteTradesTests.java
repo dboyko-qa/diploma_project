@@ -21,7 +21,7 @@ public class DeleteTradesTests extends ApiTestBase{
 
     @Test
     @DisplayName("Test that deleting non existing trade return no content code")
-    public void deleteNonExistingTrade(){
+    public void deleteNonExistingTradeTest(){
         DeleteTradeRequestDto deleteTradeRequest = DeleteTradeRequestDto.builder()
                 .portfolioId(AuthorizationApi.authInfo.getUser().getCurrentPortfolioId())
                 .shareIssuerId(Integer.valueOf(Integer.valueOf(stockModel.getId())))

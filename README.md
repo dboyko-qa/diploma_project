@@ -1,5 +1,5 @@
 # Test automation project for [IntelInvest.ru](https://intelinvest.ru)
-![This is an image](/readmeresources/index_logo.png)\
+![This is an image](/readmeresources/icons/index_logo.png)\
 IntelInvest is a service for control over the trades in the investment portfolio. 
 
 # <a name="Description">Description</a>
@@ -30,7 +30,7 @@ Some technologies and tricks used in the project:
 - [Jira integration](#Jira) has been set up.
 
 ## Tools used:
-![This is an image](/readmeresources/Java.png)![This is an image](/readmeresources/Gradle.png)![This is an image](/readmeresources/Intelij_IDEA.png)![This is an image](/readmeresources/Selenide.png)![This is an image](/readmeresources/Rest-Assured.png)![This is an image](/readmeresources/appium.png) ![This is an image](/readmeresources/androidstudio.png)![This is an image](/readmeresources/Selenoid.png)![This is an image](/readmeresources/JUnit5.png)![This is an image](/readmeresources/Jenkins.png)![This is an image](/readmeresources/Allure_Report.png)![This is an image](/readmeresources/AllureTestOps.png)![This is an image](/readmeresources/Telegram.png)![This is an image](/readmeresources/Jira.png)</br></br>
+![This is an image](/readmeresources/icons/Java.png)![This is an image](/readmeresources/icons/Gradle.png)![This is an image](/readmeresources/icons/Intelij_IDEA.png)![This is an image](/readmeresources/icons/Selenide.png)![This is an image](/readmeresources/icons/Rest-Assured.png)![This is an image](/readmeresources/icons/appium.png) ![This is an image](/readmeresources/icons/androidstudio.png)![This is an image](/readmeresources/icons/Selenoid.png)![This is an image](/readmeresources/icons/JUnit5.png)![This is an image](/readmeresources/icons/Jenkins.png)![This is an image](/readmeresources/icons/Allure_Report.png)![This is an image](/readmeresources/icons/AllureTestOps.png)![This is an image](/readmeresources/icons/Telegram.png)![This is an image](/readmeresources/icons/Jira.png)</br></br>
 
 The autotests in this project are written in `Java` using `Selenide` framework.\
 `Gradle` - is used as a build tool.  \
@@ -118,55 +118,55 @@ D --> G[mobileprofile for Android emulator/Appium]
 D --> H[mobileprofile for Browserstack/Device farm]
 ```
 
-## <a name="HowToRunInJenkins">Jenkins settings</a>
+## <a name="HowToRunInJenkins" href="https://jenkins.autotests.cloud/job/C19_barvinok61_diplom_project/">Jenkins settings</a>
 Tests can be run with parameters. All parameters are described
 <p  align="center">
-<img src="readmeresources/Jenkins_screen_parameters.png" alt="JenkinsBuildParameters">
+<img src="readmeresources/screenshots/Jenkins_screen_parameters.png" alt="JenkinsBuildParameters">
 </p>
 
-## <a name="Allure">Allure Report</a>
+## <a name="Allure" href="https://jenkins.autotests.cloud/job/C19_barvinok61_diplom_project/67/allure/">Allure Report</a>
 <p  align="center">
-<img src="readmeresources/Allure_Report_Summary.png" alt="AllureReport">
+<img src="readmeresources/screenshots/Allure_Report_Summary.png" alt="AllureReport">
 </p>
 
 ## <a name="AllureTestOps">Allure TestOps Dashboard</a>
 Note that test cases in AllureTestOps are automatically imported from auto tests
 Flat list of test cases in AllureTestOps
 <p  align="center">
-<img src="readmeresources/ATO_testcases.png" alt="AllureTestOpsTestCases">
+<img src="readmeresources/screenshots/ATO_testcases.png" alt="AllureTestOpsTestCases">
 </p>
 
 Test cases grouped by Feature in AllureTestOps
 <p  align="center">
-<img src="readmeresources/ATO_features.png" alt="AllureTestOpsFeatures">
+<img src="readmeresources/screenshots/ATO_features.png" alt="AllureTestOpsFeatures">
 </p>
 
 Test cases grouped by Suites in AllureTestOps
 <p  align="center">
-<img src="readmeresources/ATO_testsuites.png" alt="AllureTestOpsSuites">
+<img src="readmeresources/screenshots/ATO_testsuites.png" alt="AllureTestOpsSuites">
 </p>
 
 ## <a name="TelegramNotifications">Telegram notifications</a>
 After the test run has been finished the notification is sent to telegram. Notifications can be sent to a number of messengers
 <p  align="center">
-<img src="readmeresources/telegram_notification.png" alt="TelegramNotification" >
+<img src="readmeresources/screenshots/telegram_notification.png" alt="TelegramNotification" >
 </p>
 
 
 ## <a name="Jira">Jira integration</a>
 Test cases and results of tests launches have been integrated in Jira to provide correct and fully clear QA process.
 <p  align="center">
-<img src="readmeresources/Jira_integration.png" alt="JiraIntegration" >
+<img src="readmeresources/screenshots/screenshots/Jira_integration.png" alt="JiraIntegration" >
 </p>
 
 
 ## <a name="Video">Video of tests</a>
 Web test:
 <p align="center">
-  <img src="readmeresources/video_selenoid.gif" alt="WebTestVideo">
+  <img src="readmeresources/video/video_selenoid.gif" alt="WebTestVideo">
 </p>
 
 Android mobile test:
 <p align="center">
-  <img src="readmeresources/video_browserstack.gif" alt="AndroidTestVideo">
+  <img src="readmeresources/video/video_browserstack.gif" alt="AndroidTestVideo">
 </p>

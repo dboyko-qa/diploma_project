@@ -20,7 +20,7 @@ import static io.restassured.RestAssured.given;
 public class DeleteTradeApi {
 
     @Step("Delete trade for asset id = {0} from portfolio")
-    public static void deleteTrade(String id){
+    public static void deleteTrade(String id) {
         MarketInfoDto marketInfo = MarketInfoApi.getMarketInfo(id);
 
         DeleteTradeRequestDto deleteTradeRequest = DeleteTradeRequestDto.builder()
@@ -32,7 +32,7 @@ public class DeleteTradeApi {
         deleteTrade(deleteTradeRequest, NO_CONTENT_CODE);
     }
 
-    public static void deleteTrade(DeleteTradeRequestDto deleteTradeRequest, int resultCode){
+    public static void deleteTrade(DeleteTradeRequestDto deleteTradeRequest, int resultCode) {
         given()
                 .spec(Specs.requestPostSpec)
                 .body(deleteTradeRequest)
@@ -44,21 +44,21 @@ public class DeleteTradeApi {
     }
 
     @Step("Delete all stocks and bonds from current portfolio")
-    public static void deleteAllTradesFromPortfolio(){
+    public static void deleteAllTradesFromPortfolio() {
         //delete all stocks from portfolio
-        PortfolioOverviewDto portfolioOverview = PortfolioApi.getPortfolioOverview();
-        for (RowsPortfolioDto row: portfolioOverview.getStockPortfolio().getRows()){
+        PortfolioOverviewDto portfolioOverview = PortfolioApi.getCurrentPortfolioOverview();
+        for (RowsPortfolioDto row : portfolioOverview.getStockPortfolio().getRows()) {
             deleteTrade(row.getShare().getId().toString());
         }
-        for (RowsPortfolioDto row: portfolioOverview.getBondPortfolio().getRows()){
+        for (RowsPortfolioDto row : portfolioOverview.getBondPortfolio().getRows()) {
             deleteTrade(row.getShare().getId().toString());
         }
 
     }
 
-    @Step("Delete assets from portfolio that were added previously")
-    public static void deleteMultipleTrades(List<TradeModel> trades){
-        for (TradeModel trade: trades){
+    @Step("Delete assets from portfolio that were added for tests")
+    public static void deleteMultipleTrades(List<TradeModel> trades) {
+        for (TradeModel trade : trades) {
             DeleteTradeApi.deleteTrade(trade.getAsset().getId());
         }
 

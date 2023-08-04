@@ -4,25 +4,22 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
+import ru.intelinvest.consts.UiConsts;
 
 import java.util.*;
 
 import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static io.qameta.allure.Allure.step;
 
 public class PortfolioPage {
 
-    public static final String PAGE_TITLE = "Портфель";
-
-    //отсюда читать title
     ElementsCollection assetsShortNames = $$(".share-table tr.selectable div.table-ellipsis.w100pc");
     ElementsCollection assetsTickers = $$(".share-table tr.selectable div.ellipsis");
 
     @Step("Verify that Portfolio page opened")
     public PortfolioPage verifyOpened(){
-        $(".page-title").should(Condition.have(Condition.text(PAGE_TITLE)));
+        $(".page-title").should(Condition.have(Condition.text(UiConsts.PORTFOLIO_PAGE_TITLE)));
         return this;
     }
 
@@ -76,6 +73,5 @@ public class PortfolioPage {
     public PortfolioPage verifyTickers(ArrayList<String> expectedTickers) {
         verifyValuesInTable(assetsTickers, expectedTickers);
         return this;
-
     }
 }

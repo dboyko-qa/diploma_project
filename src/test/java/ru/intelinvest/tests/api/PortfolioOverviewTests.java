@@ -18,13 +18,13 @@ import static io.restassured.RestAssured.given;
 public class PortfolioOverviewTests extends ApiTestBase{
     @Test
     @DisplayName("Get portfolio overview from another user")
-    public void getForeignPortfolioOverview(){
+    public void getForeignPortfolioOverviewTest(){
         PortfolioApi.getPortfolioOverview(Integer.valueOf(App.config.foreignPortfolio()), FORBIDDEN_CODE);
     }
 
     @Test
     @DisplayName("Get portfolio that does not exist")
-    public void getNonExistingPortfolio(){
+    public void getNonExistingPortfolioTest(){
         Integer nonExistingPortfolio = 999999;
         PortfolioApi.getPortfolioOverview(nonExistingPortfolio, NOT_FOUND_CODE);
     }

@@ -12,7 +12,6 @@ import ru.intelinvest.api.trades.TradesApi;
 import ru.intelinvest.config.App;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -31,7 +30,7 @@ public class CreateTradeTests extends ApiTestBase{
 
     @Test
     @DisplayName("Verify that error is returned when empty body is sent")
-    public void tradeWithEmptyBody(){
+    public void tradeWithEmptyBodyTest(){
         //500 error code is expected result according to the response that is received
         //actually 500 error code is not a good result here
         TradeDto trade = TradeDto.builder().build();
@@ -40,12 +39,12 @@ public class CreateTradeTests extends ApiTestBase{
 
     @Test
     @DisplayName("Verify that Buy trade can be successfully created")
-    public void createBuyTrade(){
+    public void createBuyTradeTest(){
         TradeDto trade = TradesApi.createBuyTradeDto(stockModel.getId(), 10);
         TradesApi.postTrade(trade, NO_CONTENT_CODE);
 
         step("Verify that trade was added to portfolio", () -> {
-            PortfolioOverviewDto portfolioOverview = PortfolioApi.getPortfolioOverview();
+            PortfolioOverviewDto portfolioOverview = PortfolioApi.getCurrentPortfolioOverview();
             Assertions.assertTrue(stockModel.getId().equals(
                 portfolioOverview.getStockPortfolio().getRows().get(0).getShare().getId().toString()));
         });
@@ -56,7 +55,7 @@ public class CreateTradeTests extends ApiTestBase{
 
     @Test
     @DisplayName("Verify that trade with not existing id cannot be added")
-    public void createTradeWithNotExistingId() {
+    public void createTradeWithNotExistingIdTest() {
         String id = "999999";
         String ticker = "NOTEXIST";
 
@@ -75,13 +74,13 @@ public class CreateTradeTests extends ApiTestBase{
         Common.verifyResultMessage(error, "Ценная бумага с идентификатором: NOTEXIST не найдена");
     }
 
-        //создать сделку
-        @ParameterizedTest(name = "Verify that trade with asset type {0} is not created")
+        @ParameterizedTest(name = "value - {0}")
+        @DisplayName("Verify error when incorrect asset type is set")
         @ValueSource(strings = {
                 "",
                 "INCORRECT"
         })
-        public void createTradeWithIncorrectAssetType(String assetType) {
+        public void createTradeWithIncorrectAssetTypeTest(String assetType) {
             TradeFieldsDto tradeFields = TradeFieldsDto.builder()
                     .shareId(stockModel.getId())
                     .ticker(stockModel.getTicker())
@@ -101,7 +100,7 @@ public class CreateTradeTests extends ApiTestBase{
 
     @Test
     @DisplayName("Verify that trade without asset type cannot be added")
-    public void createTradeWithAbsentAssetType() {
+    public void createTradeWithAbsentAssetTypeTest() {
         TradeFieldsDto tradeFields = TradeFieldsDto.builder()
                 .shareId(stockModel.getId())
                 .ticker(stockModel.getTicker())
@@ -120,7 +119,7 @@ public class CreateTradeTests extends ApiTestBase{
 
     @Test
     @DisplayName("Verify that trade cannot be added to foreign portfolio")
-    public void createTradeForForeignPortfolio() {
+    public void createTradeForForeignPortfolioTest() {
         TradeFieldsDto tradeFields = TradeFieldsDto.builder()
                 .shareId(stockModel.getId())
                 .ticker(stockModel.getTicker())

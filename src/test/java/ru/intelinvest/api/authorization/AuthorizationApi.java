@@ -3,9 +3,8 @@ package ru.intelinvest.api.authorization;
 import ru.intelinvest.config.App;
 import ru.intelinvest.helpers.CustomAllureListener;
 
-import static ru.intelinvest.api.specifications.Specs.responseSpec;
-import static ru.intelinvest.consts.ApiConsts.LOGIN_ENDPOINT;
 import static io.restassured.RestAssured.given;
+import static ru.intelinvest.consts.ApiConsts.LOGIN_ENDPOINT;
 
 public class AuthorizationApi {
 
@@ -16,15 +15,15 @@ public class AuthorizationApi {
             .build();
 
     public static final LoginDto authInfo = given()
-                .contentType("application/json;charset=UTF-8")
-                .filter(CustomAllureListener.withCustomTemplates())
-                .body(loginRequest)
-                .when()
-                .post(LOGIN_ENDPOINT)
-                .then()
-                .log().status()
-                .log().body()
-                .extract().as(LoginDto.class);
+            .contentType("application/json;charset=UTF-8")
+            .filter(CustomAllureListener.withCustomTemplates())
+            .body(loginRequest)
+            .when()
+            .post(LOGIN_ENDPOINT)
+            .then()
+            .log().status()
+            .log().body()
+            .extract().as(LoginDto.class);
 
-    }
+}
 

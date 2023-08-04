@@ -7,53 +7,51 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MainActivity {
+
     @Step("Verify that element {0} exists")
-    private void isElementExist(String elementName){
+    private void isElementExist(String elementName) {
         $(AppiumBy.xpath(String.format("//*[@text='%s']", elementName))).should(Condition.exist);
     }
 
     @Step("Tap on element {0}")
-    private void clickElementByText(String elementName){
+    private void clickElementByText(String elementName) {
         $(AppiumBy.xpath(String.format("//*[@text='%s']", elementName))).click();
     }
 
     @Step("Verify that screen Портфель is opened")
-    public MainActivity isPortfolioScreenOpened(){
-        $(AppiumBy.xpath("//*[@text='Портфель']")).should(Condition.exist);
+    public MainActivity verifyPortfolioScreenOpened() {
+        isElementExist("Портфель");
         return this;
     }
 
     @Step("Open screen 'Еще'")
-    public MainActivity openMoreScreen(){
+    public MainActivity openMoreScreen() {
         $(AppiumBy.xpath("//*[@content-desc='Еще, tab, 4 out of 4']")).click();
         return this;
     }
 
     @Step("Open screen 'Бумаги'")
-    public MainActivity openAssetsScreen(){
+    public MainActivity openAssetsScreen() {
         $(AppiumBy.xpath("//*[@content-desc='Бумаги, tab, 2 out of 4']")).click();
         return this;
     }
 
     @Step("Verify that tab Акции exists")
-    public MainActivity verifyStocksTabExist(){
+    public MainActivity verifyStocksTabExist() {
         isElementExist("Акции");
         return this;
-
     }
 
     @Step("Open tab Акции")
-    public MainActivity openStocksTab(){
+    public MainActivity openStocksTab() {
         clickElementByText("Акции");
         return this;
-
     }
 
     @Step("Verify that asset {0} exists in portfolio")
-    public MainActivity verifyAssetExistInPortfolio(String shortName){
+    public MainActivity verifyAssetExistInPortfolio(String shortName) {
         isElementExist(shortName);
         return this;
-
     }
 
 
@@ -71,7 +69,7 @@ public class MainActivity {
         return this;
     }
 
-    public MainActivity openBondsTab(){
+    public MainActivity openBondsTab() {
         clickElementByText("Обл-ии");
         return this;
     }

@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import ru.intelinvest.api.enums.Assets;
 import ru.intelinvest.api.trades.TradesApi;
 import ru.intelinvest.config.App;
-import ru.intelinvest.models.AssetModel;
 import ru.intelinvest.models.TradeModel;
 
 import java.util.List;
@@ -58,7 +57,7 @@ public class PortfolioTests extends MobileTestBase{
     @Test
     @DisplayName("Verify that summary lines for portfolio are shown")
     public void portfolioSummaryDataShownTest(){
-        mainActivity.isPortfolioScreenOpened()
+        mainActivity.verifyPortfolioScreenOpened()
                 .verifySummaryLinesShown();
 
     }

@@ -6,10 +6,7 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LoginDto {
-    String token;
-    String refreshToken;
-
-    UserDto user;
-
-
+    private String token;
+    private String refreshToken;
+    private UserDto user;
 }

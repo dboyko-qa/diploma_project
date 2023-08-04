@@ -1,14 +1,13 @@
-package ru.intelinvest.helpers;
+package ru.intelinvest.config;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import ru.intelinvest.config.App;
-import ru.intelinvest.config.RunProfile;
-import ru.intelinvest.helpers.drivers.AppiumDriver;
-import ru.intelinvest.helpers.drivers.BrowserstackDriver;
+import ru.intelinvest.config.drivers.AppiumDriver;
+import ru.intelinvest.config.drivers.BrowserstackDriver;
 import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import ru.intelinvest.helpers.Attach;
 
 import java.util.Map;
 
@@ -18,6 +17,13 @@ import static io.qameta.allure.Allure.step;
 
 public class ConfigRunner {
 
+    private static Boolean isRemoteWeb(){
+        return (Selenoid.config.remoteWebDriver() != null && !Selenoid.config.remoteWebDriver().isEmpty());
+    }
+    private static Boolean isRemoteMobile(){
+        return (BrowserStack.config.remoteDriverUrl() != null && !BrowserStack.config.remoteDriverUrl().isEmpty());
+    }
+
     public static void runWeb() {
         Configuration.baseUrl = App.config.webUrl();
 
@@ -25,8 +31,8 @@ public class ConfigRunner {
         Configuration.browserVersion = RunProfile.config.browserVersion();
         Configuration.browserSize = RunProfile.config.browserSize();
 
-        if (RunProfile.isRemoteWeb()) {
-            Configuration.remote = RunProfile.config.remoteWebDriver();
+        if (isRemoteWeb()) {
+            Configuration.remote = Selenoid.config.remoteWebDriver();
 
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("selenoid:options", Map.<String, Object>of(
@@ -39,7 +45,7 @@ public class ConfigRunner {
     }
 
     public static void runMobile(){
-        if (RunProfile.isRemoteMobile()) {
+        if (isRemoteMobile()) {
             Configuration.browser = BrowserstackDriver.class.getName();
         }
         else {
@@ -56,7 +62,7 @@ public class ConfigRunner {
         Attach.pageSource();
 
         String sessionId = sessionId().toString();
-        if (RunProfile.isRemoteMobile()) {
+        if (isRemoteMobile()) {
             Attach.addVideoBS(sessionId);
         }
         else {
@@ -70,7 +76,7 @@ public class ConfigRunner {
         Attach.pageSource();
         Attach.browserConsoleLogs();
 
-        if (RunProfile.isRemoteWeb()) {
+        if (isRemoteWeb()) {
             Attach.addVideo();
         }
         step("Close webdriver", () -> Selenide.closeWebDriver());

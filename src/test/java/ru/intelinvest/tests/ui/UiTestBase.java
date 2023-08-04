@@ -1,7 +1,7 @@
 package ru.intelinvest.tests.ui;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import ru.intelinvest.helpers.ConfigRunner;
+import ru.intelinvest.config.ConfigRunner;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;

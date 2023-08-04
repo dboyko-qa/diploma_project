@@ -12,10 +12,10 @@ public class LoginTests extends MobileTestBase{
 
     @Test
     @DisplayName("Verify successful login")
-    public void loginTest(){
+    public void successfulLoginTest(){
         loginActivity.login(App.config.userName(), App.config.userPassword());
-        importPortfolioActivity.skip();
-        mainActivity.isPortfolioScreenOpened()
+        importPortfolioActivity.clickSkipButton();
+        mainActivity.verifyPortfolioScreenOpened()
                     .openMoreScreen();
         settingsActicity.openActivity()
                         .openBasic()

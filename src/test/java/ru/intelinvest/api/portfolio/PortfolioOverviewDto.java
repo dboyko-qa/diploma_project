@@ -5,7 +5,6 @@ import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-
 public class PortfolioOverviewDto {
     StockPortfolioDto stockPortfolio;
     BondPortfolioDto bondPortfolio;

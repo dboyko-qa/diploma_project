@@ -13,11 +13,9 @@ import static com.codeborne.selenide.Selenide.sleep;
 public class LoginTests extends UiTestBase {
     @Test
     @DisplayName("Verify successful login")
-    public void testLogin(){
+    public void successfulLoginTest(){
         mainPage.login(App.config.userName(), App.config.userPassword());
         portfolioPage.verifyOpened();
-
-        sleep(5000);
     }
 
     @Test

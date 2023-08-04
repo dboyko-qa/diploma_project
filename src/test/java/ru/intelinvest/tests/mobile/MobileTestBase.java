@@ -5,7 +5,7 @@ import ru.intelinvest.activities.ImportPortfolioActivity;
 import ru.intelinvest.activities.LoginActivity;
 import ru.intelinvest.activities.MainActivity;
 import ru.intelinvest.activities.SettingsActivity;
-import ru.intelinvest.helpers.ConfigRunner;
+import ru.intelinvest.config.ConfigRunner;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;

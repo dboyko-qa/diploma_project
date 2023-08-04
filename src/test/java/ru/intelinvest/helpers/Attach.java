@@ -1,16 +1,14 @@
 package ru.intelinvest.helpers;
 
 import com.codeborne.selenide.Selenide;
-import ru.intelinvest.config.RunProfile;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import ru.intelinvest.config.BrowserStack;
+import ru.intelinvest.config.Selenoid;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-import static com.codeborne.selenide.Selenide.sessionId;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
@@ -40,24 +38,14 @@ public class Attach {
     @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
     public static String addVideo() {
         return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
-                + getVideoUrl()
+                + Selenoid.getVideoUrl()
                 + "' type='video/mp4'></video></body></html>";
-    }
-
-    public static URL getVideoUrl() {
-        String videoUrl = RunProfile.config.remoteUrl() + "/video/" + sessionId() + ".mp4";
-        try {
-            return new URL(videoUrl);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
     @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
     public static String addVideoBS(String sessionId) {
         return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
-                + Browserstack.videoUrl(sessionId)
+                + BrowserStack.getVideoUrl(sessionId)
                 + "' type='video/mp4'></video></body></html>";
     }
 
