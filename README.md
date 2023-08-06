@@ -20,6 +20,49 @@ Some technologies and tricks used in the project:
 - [x] Used API request and work with local storage for faster user login.
   Custom extension `@WithLogin` developed.
 
+## <a name="Tests">Implemented tests</a>
+Web UI tests:
+- Web tests for login functionality
+  - Verify error message when password is incorrect
+  - Verify successful login
+- Web tests for portfolio
+  - Verify that added stocks and bonds are shown in the table
+  - Verify that all tabs are shown in Portfolio screen
+  - Verify that currency sign is correct for currency (Parameterized test)
+- Web tests: smoke
+  - Verify in UI basic application workflow that adds and deletes default share
+
+API tests:
+
+- API tests without authorization data for endpoints
+  - Get portfolio by non authorized user
+  - Test that delete by unauthorized user is forbidden
+  - Verify that trade cannot be created without authorization
+- API tests for portfolio-info endpoint
+  - Verify that portfolio with corresponding id is returned
+- API tests for portfolio overview endpoint
+  - Get portfolio overview from another user
+  - Get portfolio that does not exist
+- API tests for deleteAll trades post request
+  - Test that deleting non existing trade return no content code
+- API tests for create trade post request
+  - Verify error when incorrect asset type is set value (Parameterized test)
+  - Verify that Buy trade can be successfully created
+  - Verify that error is returned when empty body is sent
+  - Verify that trade cannot be added to foreign portfolio
+  - Verify that trade with not existing id cannot be added
+  - Verify that trade without asset type cannot be added
+
+Mobile Android tests:
+
+- Android tests for login functionality
+  - Verify error message when password is incorrect
+  - Verify successful login
+  - Verify that application is opened with Registration screen
+- Android tests for portfolio
+  - Verify that assets are added to portfolio
+  - Verify that summary lines for portfolio are shown
+
 ## <a>Automated tests running in cloud infrastructure</a>
 - Tests run with parameter has been set up in [Jenkins](#HowToRunInJenkins)
 - [Allure reports](#Allure) are automatically built. Reports contain extensive information about test run:
@@ -49,8 +92,8 @@ The autotests in this project are written in `Java` using `Selenide` framework.\
 `Gradle` - is used as a build tool.  \
 `JUnit5` - testing framework.\
 `REST Assured` - for testing of REST services.\
-`Appium` - for UI automation of mobile application
-`Android Studio` - for Android device emulator
+`Appium` - for UI automation of mobile application.\
+`Android Studio` - for Android device emulator.\
 `Jenkins` - CI/CD for running tests remotely.\
 `Selenoid` - to remote launching browsers in `Docker` containers.\
 `Allure Report` - for test results visualisation.\
