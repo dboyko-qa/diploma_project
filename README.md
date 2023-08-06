@@ -30,17 +30,33 @@ Some technologies and tricks used in the project:
 - [Jira integration](#Jira) has been set up.
 
 ## Tools used:
-![This is an image](/readmeresources/icons/Java.png)![This is an image](/readmeresources/icons/Gradle.png)![This is an image](/readmeresources/icons/Intelij_IDEA.png)![This is an image](/readmeresources/icons/Selenide.png)![This is an image](/readmeresources/icons/Rest-Assured.png)![This is an image](/readmeresources/icons/appium.png) ![This is an image](/readmeresources/icons/androidstudio.png)![This is an image](/readmeresources/icons/Selenoid.png)![This is an image](/readmeresources/icons/JUnit5.png)![This is an image](/readmeresources/icons/Jenkins.png)![This is an image](/readmeresources/icons/Allure_Report.png)![This is an image](/readmeresources/icons/AllureTestOps.png)![This is an image](/readmeresources/icons/Telegram.png)![This is an image](/readmeresources/icons/Jira.png)</br></br>
+<a href="https://www.java.com/">![Java](/readmeresources/icons/Java.png)</a>
+<a href="https://gradle.org/">![Gradle](/readmeresources/icons/Gradle.png)</a>
+<a href="https://www.jetbrains.com/idea/">![This is an image](/readmeresources/icons/Intelij_IDEA.png)</a>
+<a href="https://selenide.org/">![This is an image](/readmeresources/icons/Selenide.png)</a>
+<a href="https://rest-assured.io/">![This is an image](/readmeresources/icons/Rest-Assured.png)</a>
+<a href="http://appium.io/docs/en/2.0/">![This is an image](/readmeresources/icons/appium.png)</a>
+<a href="https://developer.android.com/studio">![This is an image](/readmeresources/icons/androidstudio.png)</a>
+<a href="https://aerokube.com/selenoid/latest/">![This is an image](/readmeresources/icons/Selenoid.png)</a>
+<a href="https://junit.org/junit5/">![This is an image](/readmeresources/icons/JUnit5.png)</a>
+<a href="https://www.jenkins.io/">![This is an image](/readmeresources/icons/Jenkins.png)</a>
+<a href="https://qameta.io/allure-report/">![This is an image](/readmeresources/icons/Allure_Report.png)</a>
+<a href="https://qameta.io/">![This is an image](/readmeresources/icons/AllureTestOps.png)</a>
+<a href="https://telegram.org/">![This is an image](/readmeresources/icons/Telegram.png)</a>
+<a href="https://www.atlassian.com/software/jira">![This is an image](/readmeresources/icons/Jira.png)</a></br></br>
 
 The autotests in this project are written in `Java` using `Selenide` framework.\
 `Gradle` - is used as a build tool.  \
 `JUnit5` - testing framework.\
 `REST Assured` - for testing of REST services.\
+`Appium` - for UI automation of mobile application
+`Android Studio` - for Android device emulator
 `Jenkins` - CI/CD for running tests remotely.\
 `Selenoid` - to remote launching browsers in `Docker` containers.\
 `Allure Report` - for test results visualisation.\
 `Telegram` - for test results notifications.\
-`Allure TestOps` - as Test Management System.
+`Allure TestOps` - as Test Management System.\
+`Jira` - as issue tracking software
 
 # <a name="HowToRun">Tests run and settings</a>
 
@@ -124,7 +140,7 @@ Tests can be run with parameters. All parameters are described
 <img src="readmeresources/screenshots/Jenkins_screen_parameters.png" alt="JenkinsBuildParameters">
 </p>
 
-## <a name="Allure" href="https://jenkins.autotests.cloud/job/C19_barvinok61_diplom_project/67/allure/">Allure Report</a>
+## <a name="Allure" href="https://jenkins.autotests.cloud/job/C19_barvinok61_diplom_project/89/allure/">Allure Report</a>
 Summary
 <p  align="center">
 <img src="readmeresources/screenshots/Allure_Report_Summary.png" alt="AllureReport">
