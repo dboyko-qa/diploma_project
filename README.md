@@ -103,8 +103,8 @@ bsUserName=
 bsAccessKey=
 ```
 Default values are set for parameters for local run.\
-All build parameters can be set either in .properties files or by system properties. In this project no sensitive data is stored in GitHub, but set as 
-system variables for Gradle build.
+All build parameters can be set either in .properties files or by system properties. 
+In this project no sensitive data is stored in GitHub, but created on the fly during build in Jenkins.
 
 Possible combinations of test run profiles:
 ```mermaid
@@ -127,6 +127,10 @@ Tests can be run with parameters. All parameters are described
 ## <a name="Allure" href="https://jenkins.autotests.cloud/job/C19_barvinok61_diplom_project/67/allure/">Allure Report</a>
 <p  align="center">
 <img src="readmeresources/screenshots/Allure_Report_Summary.png" alt="AllureReport">
+</p>
+
+<p  align="center">
+<img src="readmeresources/screenshots/Allure_Report_TestCases.png" alt="AllureReportTestCases">
 </p>
 
 ## <a name="AllureTestOps">Allure TestOps Dashboard</a>
