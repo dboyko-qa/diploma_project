@@ -8,7 +8,7 @@ public class UiConsts {
             BONDS_TAB = "Облигации",
             PORTFOLIO_PAGE_TITLE = "Портфель",
             TRADES_PAGE_TITLE = "Сделки",
-            //constants for left menu names
-            MARKET = "Рынок",
+    //constants for left menu names
+    MARKET = "Рынок",
             TRADES = "Сделки";
 }

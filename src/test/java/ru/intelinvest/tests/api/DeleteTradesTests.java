@@ -14,11 +14,11 @@ import static ru.intelinvest.consts.ApiConsts.NO_CONTENT_CODE;
 @DisplayName("API tests for deleteAll trades post request")
 @Feature("Trades")
 
-public class DeleteTradesTests extends ApiTestBase{
+public class DeleteTradesTests extends ApiTestBase {
 
     @Test
     @DisplayName("Test that deleting non existing trade return no content code")
-    public void deleteNonExistingTradeTest(){
+    public void deleteNonExistingTradeTest() {
         DeleteTradeRequestDto deleteTradeRequest = DeleteTradeRequestDto.builder()
                 .portfolioId(AuthorizationApi.authInfo.getUser().getCurrentPortfolioId())
                 .shareIssuerId(Integer.valueOf(Integer.valueOf(stockModel.getId())))

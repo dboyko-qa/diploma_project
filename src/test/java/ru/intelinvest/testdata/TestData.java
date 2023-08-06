@@ -21,7 +21,8 @@ public class TestData {
         try (InputStream inputStream = classLoader.getResourceAsStream(JSON_FILE_TRADES_DATA);
              InputStreamReader inputStreamReader = new InputStreamReader(inputStream)) {
 
-            return gson.fromJson(inputStreamReader, new TypeToken<List<TradeModel>>() {}.getType());
+            return gson.fromJson(inputStreamReader, new TypeToken<List<TradeModel>>() {
+            }.getType());
 
         } catch (IOException e) {
             System.out.printf("Error reading file %s %n", JSON_FILE_TRADES_DATA);

@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class TopbarComponent {
 
     @Step("Select currency {0}")
-    public TopbarComponent selectCurrency(String currency){
+    public TopbarComponent selectCurrency(String currency) {
         $(".currency-select").click();
         $("[role='listbox']").$(byText(currency)).click();
         return this;

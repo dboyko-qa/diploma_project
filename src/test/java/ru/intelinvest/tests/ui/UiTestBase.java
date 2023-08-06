@@ -27,7 +27,7 @@ public class UiTestBase extends TestBase {
     TopbarComponent topbar = new TopbarComponent();
 
     @BeforeAll
-    public static void beforeAll(){
+    public static void beforeAll() {
         ConfigRunner.runWeb();
     }
 

@@ -8,9 +8,10 @@ import org.aeonbits.owner.Config;
         "classpath:config/${webprofile}.properties",
         "classpath:config/local.properties"
 })
-public interface SelenoidConfig extends Config{
+public interface SelenoidConfig extends Config {
     @Key("selenoid.remoteWebDriver")
     String remoteWebDriver();
+
     @Key("selenoid.remoteUrl")
     String remoteUrl();
 }

@@ -15,7 +15,7 @@ public class TestBase {
     protected static List<TradeModel> trades = new TestData().getTradesList();
 
     @BeforeAll
-    public static void baseSetUp(){
+    public static void baseSetUp() {
         ConfigRunner.runApi();
         deleteAllTradesFromPortfolio();
     }

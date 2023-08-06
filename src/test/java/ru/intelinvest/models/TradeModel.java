@@ -12,5 +12,6 @@ public class TradeModel {
         this.quantity = quantity;
     }
 
-    public TradeModel(){}
+    public TradeModel() {
+    }
 }

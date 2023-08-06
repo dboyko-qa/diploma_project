@@ -9,12 +9,12 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class MainPage {
 
-    private static final String LOGIN_ERROR_MESSAGE="Неверное имя пользователя или пароль";
+    private static final String LOGIN_ERROR_MESSAGE = "Неверное имя пользователя или пароль";
 
     private SelenideElement errorMessageLabel = $(".modal-text-error");
 
     @Step("Login in browser using username and password")
-    public MainPage login(String userName, String password){
+    public MainPage login(String userName, String password) {
         open("");
         $(".nav-link [data-modal='.enter']").should(Condition.exist);
         $(".nav-link [data-modal='.enter']").click();
@@ -25,7 +25,7 @@ public class MainPage {
     }
 
     @Step("Verify that error message \"Неверное имя пользователя или пароль\" is shown")
-    public MainPage verifyErrorMessageIncorrectUserPassword(){
+    public MainPage verifyErrorMessageIncorrectUserPassword() {
         errorMessageLabel.shouldHave(Condition.text(LOGIN_ERROR_MESSAGE));
         return this;
     }

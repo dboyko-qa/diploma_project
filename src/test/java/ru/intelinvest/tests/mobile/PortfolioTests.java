@@ -15,21 +15,21 @@ import java.util.stream.Collectors;
 
 @DisplayName("Android tests for portfolio")
 @Feature("Portfolio")
-public class PortfolioTests extends MobileTestBase{
+public class PortfolioTests extends MobileTestBase {
 
     @BeforeAll
-    public static void configurePortfolio(){
+    public static void configurePortfolio() {
         TradesApi.addMultipleTrades(trades);
     }
 
     @BeforeEach
-    public void appLogin(){
+    public void appLogin() {
         loginActivity.login(App.config.userName(), App.config.userPassword());
     }
 
     @Test
     @DisplayName("Verify that assets are added to portfolio")
-    public void assetsShownInPortfolioTest(){
+    public void assetsShownInPortfolioTest() {
 
         mainActivity.openAssetsScreen();
 
@@ -55,7 +55,7 @@ public class PortfolioTests extends MobileTestBase{
 
     @Test
     @DisplayName("Verify that summary lines for portfolio are shown")
-    public void portfolioSummaryDataShownTest(){
+    public void portfolioSummaryDataShownTest() {
         mainActivity.verifyPortfolioScreenOpened()
                 .verifySummaryLinesShown();
     }

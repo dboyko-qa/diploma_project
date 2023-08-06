@@ -24,7 +24,7 @@ public class MobileTestBase extends TestBase {
     SettingsActivity settingsActicity = new SettingsActivity();
 
     @BeforeAll
-    public static void beforeAll(){
+    public static void beforeAll() {
         ConfigRunner.runMobile();
     }
 

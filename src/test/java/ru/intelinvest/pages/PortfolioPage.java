@@ -18,43 +18,43 @@ public class PortfolioPage {
     private ElementsCollection assetsTickers = $$(".share-table tr.selectable div.ellipsis");
 
     @Step("Verify that Portfolio page opened")
-    public PortfolioPage verifyOpened(){
+    public PortfolioPage verifyOpened() {
         $(".page-title").should(Condition.have(Condition.text(UiConsts.PORTFOLIO_PAGE_TITLE)));
         return this;
     }
 
     @Step("Open Portfolio page")
-    public PortfolioPage openPage(){
+    public PortfolioPage openPage() {
         open("/app/#/portfolio");
         return this;
     }
 
     @Step("Verify currency sign")
-    public PortfolioPage verifyCurrencySign(String currency){
+    public PortfolioPage verifyCurrencySign(String currency) {
         $(".dashboard-currency").shouldHave(Condition.cssClass(currency.toLowerCase()));
         return this;
     }
 
     @Step("Verify {0} tab exists")
-    public PortfolioPage verifyTabExists(String tabName){
+    public PortfolioPage verifyTabExists(String tabName) {
         $(".v-slide-group__wrapper").$(byText(tabName)).should(Condition.exist);
         return this;
     }
 
     @Step("Open tab {0}")
-    public PortfolioPage openTab(String tabName){
+    public PortfolioPage openTab(String tabName) {
         $(".v-slide-group__wrapper").$(byText(tabName)).click();
         return this;
     }
 
-    private void verifyValuesInTable(ElementsCollection elements, ArrayList<String> expectedValues){
+    private void verifyValuesInTable(ElementsCollection elements, ArrayList<String> expectedValues) {
         //wait when elements are shown on page
         elements.shouldHave(size(expectedValues.size()));
 
         //get title attributes
         List<String> elementsTitles = elements.attributes("title");
 
-        //sort both lists as they are compared each to each elements
+        //sort both lists as they are compared each to each element
         Collections.sort(elementsTitles);
         Collections.sort(expectedValues);
 
@@ -64,7 +64,7 @@ public class PortfolioPage {
     }
 
     @Step("Verify that short names in list coincide with expected values")
-    public PortfolioPage verifyShortNamesList(ArrayList<String> expectedTexts){
+    public PortfolioPage verifyShortNamesList(ArrayList<String> expectedTexts) {
         verifyValuesInTable(assetsShortNames, expectedTexts);
         return this;
     }

@@ -8,30 +8,30 @@ import ru.intelinvest.config.App;
 @Feature("Login")
 
 @DisplayName("Android tests for login functionality")
-public class LoginTests extends MobileTestBase{
+public class LoginTests extends MobileTestBase {
 
     @Test
     @DisplayName("Verify successful login")
-    public void successfulLoginTest(){
+    public void successfulLoginTest() {
         loginActivity.login(App.config.userName(), App.config.userPassword());
         importPortfolioActivity.clickSkipButton();
         mainActivity.verifyPortfolioScreenOpened()
-                    .openMoreScreen();
+                .openMoreScreen();
         settingsActicity.openActivity()
-                        .openBasic()
-                        .verifyLoginUser(App.config.userName());
+                .openBasic()
+                .verifyLoginUser(App.config.userName());
     }
 
     @Test
     @DisplayName("Verify error message when password is incorrect")
-    public void incorrectPasswordTest(){
+    public void incorrectPasswordTest() {
         loginActivity.login(App.config.userName(), App.config.userPassword() + "1")
                 .verifyWrongUserOrPasswordMessageShown();
     }
 
     @Test
     @DisplayName("Verify that application is opened with Registration screen")
-    public void registrationScreenTest(){
+    public void registrationScreenTest() {
         loginActivity.verifyRegistrationScreenOpened();
     }
 }

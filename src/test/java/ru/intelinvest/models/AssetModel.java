@@ -17,5 +17,6 @@ public class AssetModel {
         this.assetType = assetType;
     }
 
-    public AssetModel(){}
+    public AssetModel() {
+    }
 }

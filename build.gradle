@@ -30,7 +30,7 @@ allure {
 }
 
 dependencies {
-    testImplementation (
+    testImplementation(
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
             "io.rest-assured:rest-assured:$restAssuredVersion",
@@ -51,7 +51,7 @@ tasks.withType(JavaCompile) {
 
 tasks.withType(Test) {
     systemProperties(System.getProperties())
-    useJUnitPlatform{
+    useJUnitPlatform {
         if (System.getProperty("tag") != null && !System.getProperty("tag").isEmpty()) {
             includeTags System.getProperty("tag")
         }
@@ -59,13 +59,13 @@ tasks.withType(Test) {
 
     if (System.getProperty("threads") != null) {
         systemProperties += [
-                'junit.jupiter.execution.parallel.enabled'             : true,
-                'junit.jupiter.execution.parallel.mode.default'        : 'concurrent',
-                'junit.jupiter.execution.parallel.mode.classes.default': 'concurrent',
-                'junit.jupiter.execution.parallel.config.strategy'     : 'custom',
-                'junit.jupiter.execution.parallel.config.custom.class' : 'helpers.CustomThreadsStrategy',
-                'junit.jupiter.execution.parallel.config.fixed.max-pool-size' : 'maxPoolSize',
-                'junit.jupiter.execution.parallel.config.fixed.parallelism' : 'threads.toInteger()'
+                'junit.jupiter.execution.parallel.enabled'                   : true,
+                'junit.jupiter.execution.parallel.mode.default'              : 'concurrent',
+                'junit.jupiter.execution.parallel.mode.classes.default'      : 'concurrent',
+                'junit.jupiter.execution.parallel.config.strategy'           : 'custom',
+                'junit.jupiter.execution.parallel.config.custom.class'       : 'helpers.CustomThreadsStrategy',
+                'junit.jupiter.execution.parallel.config.fixed.max-pool-size': 'maxPoolSize',
+                'junit.jupiter.execution.parallel.config.fixed.parallelism'  : 'threads.toInteger()'
         ]
     }
 

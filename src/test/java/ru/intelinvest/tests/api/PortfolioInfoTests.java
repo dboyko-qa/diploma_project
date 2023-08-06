@@ -18,7 +18,7 @@ public class PortfolioInfoTests {
 
     @Test
     @DisplayName("Verify that portfolio with corresponding id is returned")
-    public void correctPortfolioIdReturnedTest(){
+    public void correctPortfolioIdReturnedTest() {
         Integer portfolioId = AuthorizationApi.authInfo.getUser().getCurrentPortfolioId();
         PortfolioInfoDto portfolio = PortfolioApi.getPortfolioInfo(portfolioId, OK_CODE);
 

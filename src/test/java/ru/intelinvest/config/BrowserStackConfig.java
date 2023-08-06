@@ -11,12 +11,16 @@ import org.aeonbits.owner.Config;
 public interface BrowserStackConfig extends Config {
     @Key("browserStack.remoteDriverUrl")
     String remoteDriverUrl();
+
     @Key("browserStack.remoteAPIUrl")
     String remoteAPIUrl();
+
     @Key("browserStack.appUrl")
     String appUrl();
+
     @Key("browserStack.userName")
     String userName();
+
     @Key("browserStack.accessKey")
     String accessKey();
 

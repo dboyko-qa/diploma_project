@@ -13,12 +13,15 @@ public interface MobileConfig extends Config {
     @DefaultValue("11.0")
     @Key("mobile.version")
     String mobileVersion();
+
     @DefaultValue("android")
     @Key("mobile.platform")
     String mobilePlatformName();
+
     @DefaultValue("Pixel 4 API 30")
     @Key("mobile.deviceName")
     String mobileDeviceName();
+
     @DefaultValue("http://localhost:4723")
     @Key("mobile.url")
     String mobileUrl();

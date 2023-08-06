@@ -14,11 +14,11 @@ public class SmokeTests extends UiTestBase {
     @Test
     @Tag("Smoke")
     @DisplayName("Verify in UI basic application workflow that adds and deletes default share")
-    public void baseFlowTest(){
+    public void baseFlowTest() {
         mainPage.login(App.config.userName(), App.config.userPassword());
         leftMenu.openShareInfoPage();
         shareInfoPage.clickAddToPortfolioButton();
-        addTradeDialog.addTradeToPortfolio();
+        addTradeDialog.addTradeToPortfolio(10);
         leftMenu.openTradesPage();
         tradesPage.verifyOpened()
                 .deleteFirstTrade();

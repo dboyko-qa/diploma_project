@@ -17,11 +17,11 @@ import static io.qameta.allure.Allure.step;
 
 public class ConfigRunner {
 
-    private static Boolean isRemoteWeb(){
+    private static Boolean isRemoteWeb() {
         return (Selenoid.config.remoteWebDriver() != null && !Selenoid.config.remoteWebDriver().isEmpty());
     }
 
-    private static Boolean isRemoteMobile(){
+    private static Boolean isRemoteMobile() {
         return (BrowserStack.config.remoteDriverUrl() != null && !BrowserStack.config.remoteDriverUrl().isEmpty());
     }
 
@@ -45,11 +45,10 @@ public class ConfigRunner {
         }
     }
 
-    public static void runMobile(){
+    public static void runMobile() {
         if (isRemoteMobile()) {
             Configuration.browser = BrowserstackDriver.class.getName();
-        }
-        else {
+        } else {
             Configuration.browser = AppiumDriver.class.getName();
         }
 
@@ -64,8 +63,7 @@ public class ConfigRunner {
         String sessionId = sessionId().toString();
         if (isRemoteMobile()) {
             Attach.addVideoBS(sessionId);
-        }
-        else {
+        } else {
             Attach.screenshotAs("Last screenshot");
         }
         closeWebDriver();
