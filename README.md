@@ -125,10 +125,11 @@ Tests can be run with parameters. All parameters are described
 </p>
 
 ## <a name="Allure" href="https://jenkins.autotests.cloud/job/C19_barvinok61_diplom_project/67/allure/">Allure Report</a>
+Summary
 <p  align="center">
 <img src="readmeresources/screenshots/Allure_Report_Summary.png" alt="AllureReport">
 </p>
-
+Test cases
 <p  align="center">
 <img src="readmeresources/screenshots/Allure_Report_TestCases.png" alt="AllureReportTestCases">
 </p>
@@ -160,7 +161,7 @@ After the test run has been finished the notification is sent to telegram. Notif
 ## <a name="Jira">Jira integration</a>
 Test cases and results of tests launches have been integrated in Jira to provide correct and fully clear QA process.
 <p  align="center">
-<img src="readmeresources/screenshots/screenshots/Jira_integration.png" alt="JiraIntegration" >
+<img src="readmeresources/screenshots/Jira_integration.png" alt="JiraIntegration" >
 </p>
 
 
