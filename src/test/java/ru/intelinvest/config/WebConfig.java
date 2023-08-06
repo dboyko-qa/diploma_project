@@ -19,5 +19,4 @@ public interface WebConfig extends Config{
     @Config.DefaultValue("1920x1080")
     @Key("browser.size")
     String browserSize();
-
 }

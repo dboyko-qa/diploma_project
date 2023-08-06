@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 @Feature("Smoke tests")
 @DisplayName("Web tests: smoke")
 public class SmokeTests extends UiTestBase {
+
     @Test
     @Tag("Smoke")
     @DisplayName("Verify in UI basic application workflow that adds and deletes default share")
@@ -22,5 +23,4 @@ public class SmokeTests extends UiTestBase {
         tradesPage.verifyOpened()
                 .deleteFirstTrade();
     }
-
 }

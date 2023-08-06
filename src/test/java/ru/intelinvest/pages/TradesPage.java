@@ -21,5 +21,4 @@ public class TradesPage {
         $(".v-expansion-panel-header").shouldHave(text(UiConsts.TRADES_PAGE_TITLE));
         return this;
     }
-
 }

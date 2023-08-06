@@ -16,11 +16,8 @@ import ru.intelinvest.pages.components.LeftMenuComponent;
 import ru.intelinvest.pages.components.TopbarComponent;
 import ru.intelinvest.tests.TestBase;
 
-import static io.qameta.allure.Allure.step;
-
 @Tag("UI")
 public class UiTestBase extends TestBase {
-
     MainPage mainPage = new MainPage();
     LeftMenuComponent leftMenu = new LeftMenuComponent();
     ShareInfoPage shareInfoPage = new ShareInfoPage();
@@ -34,7 +31,6 @@ public class UiTestBase extends TestBase {
         ConfigRunner.runWeb();
     }
 
-
     @BeforeEach
     void addListener() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
@@ -43,7 +39,5 @@ public class UiTestBase extends TestBase {
     @AfterEach
     void addAttachments() {
         ConfigRunner.finishWeb();
-
     }
-
 }

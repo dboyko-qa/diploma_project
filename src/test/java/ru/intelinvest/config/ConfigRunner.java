@@ -20,6 +20,7 @@ public class ConfigRunner {
     private static Boolean isRemoteWeb(){
         return (Selenoid.config.remoteWebDriver() != null && !Selenoid.config.remoteWebDriver().isEmpty());
     }
+
     private static Boolean isRemoteMobile(){
         return (BrowserStack.config.remoteDriverUrl() != null && !BrowserStack.config.remoteDriverUrl().isEmpty());
     }
@@ -57,7 +58,6 @@ public class ConfigRunner {
         Configuration.screenshots = false;
     }
 
-
     public static void finishMobile() {
         Attach.pageSource();
 
@@ -85,7 +85,6 @@ public class ConfigRunner {
     public static void runApi() {
         RestAssured.baseURI = App.config.apiUrl();
         RestAssured.defaultParser = Parser.JSON;
-
     }
 }
 

@@ -5,10 +5,10 @@ import ru.intelinvest.api.enums.Assets;
 
 @Data
 public class AssetModel {
-    String id;
-    String shortName;
-    String ticker;
-    Assets assetType;
+    private String id;
+    private String shortName;
+    private String ticker;
+    private Assets assetType;
 
     public AssetModel(String id, String shortName, String ticker, Assets assetType) {
         this.id = id;

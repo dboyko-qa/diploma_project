@@ -20,33 +20,29 @@ import ru.intelinvest.helpers.Common;
 import static ru.intelinvest.api.trades.DeleteTradeApi.deleteTrade;
 import static ru.intelinvest.consts.ApiConsts.*;
 import static io.qameta.allure.Allure.step;
-import static io.restassured.RestAssured.given;
-
 
 @DisplayName("API tests for create trade post request")
 @Feature("Trades")
 
-public class CreateTradeTests extends ApiTestBase{
+public class CreateTradeTests extends ApiTestBase {
 
     @Test
     @DisplayName("Verify that error is returned when empty body is sent")
-    public void tradeWithEmptyBodyTest(){
-        //500 error code is expected result according to the response that is received
-        //actually 500 error code is not a good result here
+    public void tradeWithEmptyBodyTest() {
         TradeDto trade = TradeDto.builder().build();
         TradesApi.postTrade(trade, BAD_REQUEST_CODE);
     }
 
     @Test
     @DisplayName("Verify that Buy trade can be successfully created")
-    public void createBuyTradeTest(){
+    public void createBuyTradeTest() {
         TradeDto trade = TradesApi.createBuyTradeDto(stockModel.getId(), 10);
         TradesApi.postTrade(trade, NO_CONTENT_CODE);
 
         step("Verify that trade was added to portfolio", () -> {
             PortfolioOverviewDto portfolioOverview = PortfolioApi.getCurrentPortfolioOverview();
-            Assertions.assertTrue(stockModel.getId().equals(
-                portfolioOverview.getStockPortfolio().getRows().get(0).getShare().getId().toString()));
+            Assertions.assertEquals(stockModel.getId(),
+                    portfolioOverview.getStockPortfolio().getRows().get(0).getShare().getId().toString());
         });
 
         deleteTrade(stockModel.getId());
@@ -74,29 +70,29 @@ public class CreateTradeTests extends ApiTestBase{
         Common.verifyResultMessage(error, "Ценная бумага с идентификатором: NOTEXIST не найдена");
     }
 
-        @ParameterizedTest(name = "value - {0}")
-        @DisplayName("Verify error when incorrect asset type is set")
-        @ValueSource(strings = {
-                "",
-                "INCORRECT"
-        })
-        public void createTradeWithIncorrectAssetTypeTest(String assetType) {
-            TradeFieldsDto tradeFields = TradeFieldsDto.builder()
-                    .shareId(stockModel.getId())
-                    .ticker(stockModel.getTicker())
-                    .build();
+    @ParameterizedTest(name = "value - {0}")
+    @DisplayName("Verify error when incorrect asset type is set")
+    @ValueSource(strings = {
+            "",
+            "INCORRECT"
+    })
+    public void createTradeWithIncorrectAssetTypeTest(String assetType) {
+        TradeFieldsDto tradeFields = TradeFieldsDto.builder()
+                .shareId(stockModel.getId())
+                .ticker(stockModel.getTicker())
+                .build();
 
-            TradeDto trade = TradeDto.builder()
-                    .operation(Operations.BUY.toString())
-                    .asset(assetType)
-                    .fields(tradeFields)
-                    .build();
+        TradeDto trade = TradeDto.builder()
+                .operation(Operations.BUY.toString())
+                .asset(assetType)
+                .fields(tradeFields)
+                .build();
 
-            //expected result is set according to current API behavior
-            //actually 500 error code should not be returned
-            ApiErrorDto error = TradesApi.postTrade(trade, SERVER_INTERNAL_ERROR_CODE);
-            Common.verifyResultMessage(error, "Внутренняя ошибка сервера");
-        }
+        //expected result is set according to current API behavior
+        //actually 500 error code should not be returned
+        ApiErrorDto error = TradesApi.postTrade(trade, SERVER_INTERNAL_ERROR_CODE);
+        Common.verifyResultMessage(error, "Внутренняя ошибка сервера");
+    }
 
     @Test
     @DisplayName("Verify that trade without asset type cannot be added")
@@ -135,7 +131,7 @@ public class CreateTradeTests extends ApiTestBase{
         ApiErrorDto error = TradesApi.postTrade(trade, FORBIDDEN_CODE);
 
         Common.verifyResultMessage(error, String.format("Доступ к портфелю с идентификатором %s запрещен",
-                                                App.config.foreignPortfolio()));
+                App.config.foreignPortfolio()));
     }
 
 

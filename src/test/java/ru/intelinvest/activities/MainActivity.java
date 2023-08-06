@@ -54,7 +54,6 @@ public class MainActivity {
         return this;
     }
 
-
     @Step("Verify that summary statistics lines are shown for portfolio")
     public MainActivity verifySummaryLinesShown() {
         isElementExist("Стоимость");

@@ -53,7 +53,6 @@ public class DeleteTradeApi {
         for (RowsPortfolioDto row : portfolioOverview.getBondPortfolio().getRows()) {
             deleteTrade(row.getShare().getId().toString());
         }
-
     }
 
     @Step("Delete assets from portfolio that were added for tests")
@@ -61,7 +60,5 @@ public class DeleteTradeApi {
         for (TradeModel trade : trades) {
             DeleteTradeApi.deleteTrade(trade.getAsset().getId());
         }
-
     }
-
 }

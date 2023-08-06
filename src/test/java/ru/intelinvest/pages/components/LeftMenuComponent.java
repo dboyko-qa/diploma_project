@@ -23,5 +23,4 @@ public class LeftMenuComponent {
         $("[href='#/share-info']").click();
         return this;
     }
-
 }

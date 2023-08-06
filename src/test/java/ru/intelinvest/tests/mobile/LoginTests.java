@@ -20,7 +20,6 @@ public class LoginTests extends MobileTestBase{
         settingsActicity.openActivity()
                         .openBasic()
                         .verifyLoginUser(App.config.userName());
-
     }
 
     @Test
@@ -28,7 +27,6 @@ public class LoginTests extends MobileTestBase{
     public void incorrectPasswordTest(){
         loginActivity.login(App.config.userName(), App.config.userPassword() + "1")
                 .verifyWrongUserOrPasswordMessageShown();
-
     }
 
     @Test

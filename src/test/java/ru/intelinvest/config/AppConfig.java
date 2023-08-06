@@ -17,5 +17,4 @@ public interface AppConfig extends Config{
     String mobileAppPath();
     String mobileAppPackage();
     String mobileAppActivity();
-
 }

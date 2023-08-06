@@ -14,8 +14,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class PortfolioPage {
 
-    ElementsCollection assetsShortNames = $$(".share-table tr.selectable div.table-ellipsis.w100pc");
-    ElementsCollection assetsTickers = $$(".share-table tr.selectable div.ellipsis");
+    private ElementsCollection assetsShortNames = $$(".share-table tr.selectable div.table-ellipsis.w100pc");
+    private ElementsCollection assetsTickers = $$(".share-table tr.selectable div.ellipsis");
 
     @Step("Verify that Portfolio page opened")
     public PortfolioPage verifyOpened(){
@@ -59,7 +59,7 @@ public class PortfolioPage {
         Collections.sort(expectedValues);
 
         //compare lists using equals method.ShouldHave method from Selenide is not useful as it doesn't compare sorted lists
-        Assertions.assertTrue(elementsTitles.equals(expectedValues));
+        Assertions.assertEquals(elementsTitles, expectedValues);
 
     }
 

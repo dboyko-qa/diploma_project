@@ -52,7 +52,6 @@ public class NoAuthorizationTest extends ApiTestBase{
                 .then()
                 .log().all()
                 .statusCode(UNAUTHORIZED_CODE);
-
     }
 
     @Test
@@ -69,5 +68,4 @@ public class NoAuthorizationTest extends ApiTestBase{
                 .log().all()
                 .statusCode(UNAUTHORIZED_CODE);
     }
-
 }

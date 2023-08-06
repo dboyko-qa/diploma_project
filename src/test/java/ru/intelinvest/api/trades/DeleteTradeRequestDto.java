@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @Builder
 public class DeleteTradeRequestDto {
-    String shareType;
-    Integer shareIssuerId;
-    Integer portfolioId;
+    private String shareType;
+    private Integer shareIssuerId;
+    private Integer portfolioId;
 }

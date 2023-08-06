@@ -13,27 +13,27 @@ import java.time.format.DateTimeFormatter;
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TradeFieldsDto {
-    String shareId;
-    String ticker;
+    private String shareId;
+    private String ticker;
     @Builder.Default
-    String date = ZonedDateTime.now(ZoneId.of("Africa/Harare"))
+    private String date = ZonedDateTime.now(ZoneId.of("Africa/Harare"))
             .format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
     @Builder.Default
-    String quantity = "10";
+    private String quantity = "10";
     @Builder.Default
-    String price = "175";
+    private String price = "175";
     @SerializedName("facevalue")
-    String faceValue;
-    String nkd;
+    private String faceValue;
+    private String nkd;
     @Builder.Default
-    Boolean perOne = true;
-    String fee;
-    String feeCurrency;
-    String note;
+    private Boolean perOne = true;
+    private String fee;
+    private String feeCurrency;
+    private String note;
     @Builder.Default
-    Boolean keepMoney = false;
+    private Boolean keepMoney = false;
     @Builder.Default
-    String moneyAmount = "1750";
+    private String moneyAmount = "1750";
     @Builder.Default
-    String currency = "RUB";
+    private String currency = "RUB";
 }

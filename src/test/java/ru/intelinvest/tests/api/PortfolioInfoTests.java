@@ -6,7 +6,6 @@ import ru.intelinvest.api.portfolio.PortfolioApi;
 import ru.intelinvest.api.portfolio.PortfolioInfoDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static ru.intelinvest.consts.ApiConsts.OK_CODE;
@@ -15,7 +14,6 @@ import static io.qameta.allure.Allure.step;
 
 @DisplayName("API tests for portfolio-info endpoint")
 @Feature("Portfolio")
-
 public class PortfolioInfoTests {
 
     @Test

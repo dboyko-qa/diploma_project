@@ -10,6 +10,5 @@ public class Common {
     public static void verifyResultMessage(ApiErrorDto error, String resultMessage){
         step("Verify result message is " + resultMessage, () ->
                 Assertions.assertTrue(error.getMessage().equals(resultMessage)));
-
     }
 }

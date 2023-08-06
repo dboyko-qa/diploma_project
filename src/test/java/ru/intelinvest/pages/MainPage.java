@@ -11,7 +11,7 @@ public class MainPage {
 
     private static final String LOGIN_ERROR_MESSAGE="Неверное имя пользователя или пароль";
 
-    SelenideElement errorMessageLabel = $(".modal-text-error");
+    private SelenideElement errorMessageLabel = $(".modal-text-error");
 
     @Step("Login in browser using username and password")
     public MainPage login(String userName, String password){

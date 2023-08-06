@@ -1,7 +1,6 @@
 package ru.intelinvest.consts;
 
 public class UiConsts {
-    //Portfolio screen
     public static final String PORTFOLIO_CONTENT_TAB = "Состав портфеля",
             ALL_ASSETS = "Все активы",
             CONSOLIDATED_REPORT = "Сводный отчет",

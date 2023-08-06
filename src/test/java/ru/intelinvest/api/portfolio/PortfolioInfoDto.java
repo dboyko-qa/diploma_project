@@ -6,8 +6,8 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PortfolioInfoDto {
-    Integer id;
-    String name;
-    String viewCurrency;
-    String status;
+    private Integer id;
+    private String name;
+    private String viewCurrency;
+    private String status;
 }

@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName;
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
-
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ShareDto {

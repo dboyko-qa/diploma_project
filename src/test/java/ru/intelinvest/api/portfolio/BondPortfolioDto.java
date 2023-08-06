@@ -9,6 +9,5 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 
 public class BondPortfolioDto {
-    List<RowsPortfolioDto> rows;
-
+    private List<RowsPortfolioDto> rows;
 }

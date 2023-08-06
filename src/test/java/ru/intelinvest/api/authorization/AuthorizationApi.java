@@ -24,6 +24,5 @@ public class AuthorizationApi {
             .log().status()
             .log().body()
             .extract().as(LoginDto.class);
-
 }
 

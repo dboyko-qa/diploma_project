@@ -9,7 +9,6 @@ public class ApiConsts {
             LOGIN_ENDPOINT = "/user/login",
             TRADES_ENDPOINT = "/trades",
             MARKET_INFO_ENDPOINT = "/market/share/%s/info";
-
     //error codes
     public static final int BAD_REQUEST_CODE = 400,
             UNAUTHORIZED_CODE = 401,

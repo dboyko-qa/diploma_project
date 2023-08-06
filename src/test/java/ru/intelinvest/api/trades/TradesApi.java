@@ -42,7 +42,6 @@ public class TradesApi {
         }
     }
 
-
     @Step("Create Buy trade for asset id = {0} with quantity {1}")
     public static TradeDto createBuyTradeDto(String id, Integer quantity) {
         return createTradeDto(Operations.BUY, id, quantity);

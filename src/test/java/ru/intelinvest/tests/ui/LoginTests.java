@@ -1,16 +1,14 @@
 package ru.intelinvest.tests.ui;
 
 import io.qameta.allure.Feature;
-import ru.intelinvest.config.App;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.Selenide.sleep;
+import ru.intelinvest.config.App;
 
 @Feature("Login")
 @DisplayName("Web tests for login functionality")
 public class LoginTests extends UiTestBase {
+
     @Test
     @DisplayName("Verify successful login")
     public void successfulLoginTest(){
@@ -24,6 +22,5 @@ public class LoginTests extends UiTestBase {
         //ввести неверный пароль. проверить, что получаем ошибку
         mainPage.login(App.config.userName(), App.config.userPassword() + "1")
                 .verifyErrorMessageIncorrectUserPassword();
-
     }
 }

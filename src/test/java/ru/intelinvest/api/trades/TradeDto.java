@@ -10,16 +10,15 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TradeDto {
     @Builder.Default
-    Integer portfolioId = AuthorizationApi.authInfo.getUser().getCurrentPortfolioId();
-    String asset;
-    String operation;
+    private Integer portfolioId = AuthorizationApi.authInfo.getUser().getCurrentPortfolioId();
+    private String asset;
+    private String operation;
     @Builder.Default
-    Boolean createLinkedTrade = false;
-    String eventDate;
-    String eventPeriod;
+    private Boolean createLinkedTrade = false;
+    private String eventDate;
+    private String eventPeriod;
     @Builder.Default
-    Boolean processShareEvent = false;
-    TradeFieldsDto fields;
-    String linkedTradeRequest;
-
+    private Boolean processShareEvent = false;
+    private TradeFieldsDto fields;
+    private String linkedTradeRequest;
 }

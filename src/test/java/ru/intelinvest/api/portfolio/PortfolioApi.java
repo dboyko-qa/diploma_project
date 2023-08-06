@@ -38,5 +38,4 @@ public class PortfolioApi {
                 .statusCode(errorCode)
                 .extract().as(PortfolioInfoDto.class);
     }
-
 }

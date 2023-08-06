@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class LoginExtension implements BeforeEachCallback {
     private final String REFRESH_TOKEN = "INTELINVEST-REFRESH-TOKEN",
                         TOKEN = "INTELINVEST_TOKEN";
+
     @Override
     @Step("Login to site")
     public void beforeEach(ExtensionContext context){

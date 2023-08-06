@@ -8,6 +8,7 @@ import java.net.URL;
 import static com.codeborne.selenide.Selenide.sessionId;
 
 public class Selenoid {
+
     public static SelenoidConfig config = ConfigFactory.create(SelenoidConfig.class, System.getProperties());
 
     public static URL getVideoUrl() {

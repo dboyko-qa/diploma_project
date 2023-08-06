@@ -17,6 +17,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 @Tag("ANDROID")
 public class MobileTestBase extends TestBase {
+
     LoginActivity loginActivity = new LoginActivity();
     ImportPortfolioActivity importPortfolioActivity = new ImportPortfolioActivity();
     MainActivity mainActivity = new MainActivity();
@@ -25,7 +26,6 @@ public class MobileTestBase extends TestBase {
     @BeforeAll
     public static void beforeAll(){
         ConfigRunner.runMobile();
-
     }
 
     @BeforeEach
@@ -37,7 +37,5 @@ public class MobileTestBase extends TestBase {
     @AfterEach
     public void afterEach() {
         ConfigRunner.finishMobile();
-
     }
-
 }

@@ -13,5 +13,4 @@ public interface SelenoidConfig extends Config{
     String remoteWebDriver();
     @Key("selenoid.remoteUrl")
     String remoteUrl();
-
 }

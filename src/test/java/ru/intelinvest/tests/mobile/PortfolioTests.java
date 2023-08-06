@@ -25,7 +25,6 @@ public class PortfolioTests extends MobileTestBase{
     @BeforeEach
     public void appLogin(){
         loginActivity.login(App.config.userName(), App.config.userPassword());
-
     }
 
     @Test
@@ -59,6 +58,5 @@ public class PortfolioTests extends MobileTestBase{
     public void portfolioSummaryDataShownTest(){
         mainActivity.verifyPortfolioScreenOpened()
                 .verifySummaryLinesShown();
-
     }
 }

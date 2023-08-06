@@ -8,6 +8,5 @@ import java.util.List;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class StockPortfolioDto {
-    List<RowsPortfolioDto> rows;
-
+    private List<RowsPortfolioDto> rows;
 }
