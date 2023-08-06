@@ -35,16 +35,16 @@ Web UI tests:
 API tests:
 
 - API tests without authorization data for endpoints
-  - Get portfolio by non authorized user
-  - Test that delete by unauthorized user is forbidden
+  - Verify that get portfolio by unauthorized user is forbidden
+  - Verify that delete by unauthorized user is forbidden
   - Verify that trade cannot be created without authorization
 - API tests for portfolio-info endpoint
   - Verify that portfolio with corresponding id is returned
 - API tests for portfolio overview endpoint
-  - Get portfolio overview from another user
-  - Get portfolio that does not exist
+  - Verify that get portfolio overview from another user returns error
+  - Verify that get portfolio that does not exist returns error
 - API tests for deleteAll trades post request
-  - Test that deleting non existing trade return no content code
+  - Verify that deleting non-existing trade returns no content code
 - API tests for create trade post request
   - Verify error when incorrect asset type is set value (Parameterized test)
   - Verify that Buy trade can be successfully created
