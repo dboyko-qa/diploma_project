@@ -1,6 +1,7 @@
 # Test automation project for [IntelInvest.ru](https://intelinvest.ru)
+
 ![This is an image](/readmeresources/icons/index_logo.png)\
-IntelInvest is a service for control over the trades in the investment portfolio. 
+IntelInvest is a service for control over the trades in the investment portfolio.
 
 # <a name="Description">Description</a>
 
@@ -21,58 +22,70 @@ Some technologies and tricks used in the project:
   Custom extension `@WithLogin` developed.
 
 ## <a name="Tests">Implemented tests</a>
-Web UI tests:
+
+<details>
+<summary>Web UI tests:</summary>
+
 - Web tests for login functionality
   - Verify error message when password is incorrect
   - Verify successful login
 - Web tests for portfolio
-  - Verify that added stocks and bonds are shown in the table
-  - Verify that all tabs are shown in Portfolio screen
-  - Verify that currency sign is correct for currency (Parameterized test)
+    - Verify that added stocks and bonds are shown in the table
+    - Verify that all tabs are shown in Portfolio screen
+    - Verify that currency sign is correct for currency (Parameterized test)
 - Web tests: smoke
   - Verify in UI basic application workflow that adds and deletes default share
+</details>
 
-API tests:
+<details>
+
+<summary>API tests:</summary>
 
 - API tests without authorization data for endpoints
-  - Verify that get portfolio by unauthorized user is forbidden
-  - Verify that delete by unauthorized user is forbidden
-  - Verify that trade cannot be created without authorization
+    - Verify that get portfolio by unauthorized user is forbidden
+    - Verify that delete by unauthorized user is forbidden
+    - Verify that trade cannot be created without authorization
 - API tests for portfolio-info endpoint
-  - Verify that portfolio with corresponding id is returned
+    - Verify that portfolio with corresponding id is returned
 - API tests for portfolio overview endpoint
-  - Verify that get portfolio overview from another user returns error
-  - Verify that get portfolio that does not exist returns error
+    - Verify that get portfolio overview from another user returns error
+    - Verify that get portfolio that does not exist returns error
 - API tests for deleteAll trades post request
-  - Verify that deleting non-existing trade returns no content code
+    - Verify that deleting non-existing trade returns no content code
 - API tests for create trade post request
-  - Verify error when incorrect asset type is set value (Parameterized test)
-  - Verify that Buy trade can be successfully created
-  - Verify that error is returned when empty body is sent
-  - Verify that trade cannot be added to foreign portfolio
-  - Verify that trade with not existing id cannot be added
-  - Verify that trade without asset type cannot be added
+    - Verify error when incorrect asset type is set value (Parameterized test)
+    - Verify that Buy trade can be successfully created
+    - Verify that error is returned when empty body is sent
+    - Verify that trade cannot be added to foreign portfolio
+    - Verify that trade with not existing id cannot be added
+    - Verify that trade without asset type cannot be added
 
-Mobile Android tests:
+</details>
+<details>
+<summary>Mobile Android tests:</summary>
 
 - Android tests for login functionality
-  - Verify error message when password is incorrect
-  - Verify successful login
-  - Verify that application is opened with Registration screen
+    - Verify error message when password is incorrect
+    - Verify successful login
+    - Verify that application is opened with Registration screen
 - Android tests for portfolio
-  - Verify that assets are added to portfolio
-  - Verify that summary lines for portfolio are shown
+    - Verify that assets are added to portfolio
+    - Verify that summary lines for portfolio are shown
+</details>
 
 ## <a>Automated tests running in cloud infrastructure</a>
+
 - Tests run with parameter has been set up in [Jenkins](#HowToRunInJenkins)
 - [Allure reports](#Allure) are automatically built. Reports contain extensive information about test run:
   browser logs, API logs, screenshots, [video records](#Video).
-- Test running has been integrated with [AllureTestOps](#AllureTestOps): to use autotests as test documentation,to build live test documentation,
+- Test running has been integrated with [AllureTestOps](#AllureTestOps): to use autotests as test documentation,to build
+  live test documentation,
   to run tests from AllureTestOps, review status of tests and use other options of the TMS.
 - [Telegram notifications](#TelegramNotifications) sending after tests finish has been set up.
 - [Jira integration](#Jira) has been set up.
 
 ## Tools used:
+
 <a href="https://www.java.com/">![Java](/readmeresources/icons/Java.png)</a>
 <a href="https://gradle.org/">![Gradle](/readmeresources/icons/Gradle.png)</a>
 <a href="https://www.jetbrains.com/idea/">![This is an image](/readmeresources/icons/Intelij_IDEA.png)</a>
@@ -104,7 +117,9 @@ The autotests in this project are written in `Java` using `Selenide` framework.\
 # <a name="HowToRun">Tests run and settings</a>
 
 ## <a name="HowToRunCommandLine">How to run tests from command line</a>
+
 To run all tests with default parameters locally
+
 ```bash
 gradle clean test
 ```
@@ -113,12 +128,13 @@ Parameters\
 `-Dtags="('UI','API','ANDROID')"` - to run tests with specific tags. Tags can be listed with comma separator\
 `-Dwebprofile` - to set *.properties file with settings for UI and API tests (name without extension)\
 `-Dmobileprofile` - to set *.properties file with settings for Mobile tests (name without extension)\
-Sample properties files can be found in resources/config package. Several configuration files can be created for all 
+Sample properties files can be found in resources/config package. Several configuration files can be created for all
 possible test configurations.\
 
 ## <a name="PropertyFiles">Property files</a>
 
 - `app.properties` file for settings of application
+
 ```properties
 webUrl=
 apiUrl=
@@ -126,34 +142,46 @@ mobileAppPath=
 mobileAppPackage=
 mobileAppActivity=
 ```
+
 - `user.properties` file for user data
+
 ```properties
   userName=
-  userPassword=
-  foreignPortfolio=
+userPassword=
+foreignPortfolio=
 ```
+
 - `{webprofile}.properties` file for settings of environment where UI tests should be run
+
 ```properties
   browser=
-  browserVersion= 
-  browserSize= 
+browserVersion=
+browserSize= 
 ```
+
 if tests should be run in Selenoid, then the following parameters should also have values:
+
 ```properties
-  remoteWebDriver= 
-  remoteUrl=
+  remoteWebDriver=
+remoteUrl=
 ```
+
 - `{mobileprofile}.properties` file for settings of environment where UI tests should be run
+
 ```properties
   mobileVersion=
-  mobilePlatformName=
-  mobileDeviceName=
+mobilePlatformName=
+mobileDeviceName=
 ```
+
 For local run in Android emulator using Appium also set the following property
+
 ```properties
 mobileUrl=
 ```
+
 For remote run in Browserstack mobile device farm also set properties:
+
 ```properties
 remoteMobileUrl=
 remoteMobileAPIUrl=
@@ -161,11 +189,13 @@ appUrl=
 bsUserName=
 bsAccessKey=
 ```
+
 Default values are set for parameters for local run.\
-All build parameters can be set either in .properties files or by system properties. 
+All build parameters can be set either in .properties files or by system properties.
 In this project no sensitive data is stored in GitHub, but created on the fly during build in Jenkins.
 
 Possible combinations of test run profiles:
+
 ```mermaid
 graph LR
 A[tag] --> B[API]
@@ -178,12 +208,14 @@ D --> H[mobileprofile for Browserstack/Device farm]
 ```
 
 ## <a name="HowToRunInJenkins" href="https://jenkins.autotests.cloud/job/C19_barvinok61_diplom_project/">Jenkins settings</a>
+
 Tests can be run with parameters. All parameters are described
 <p  align="center">
 <img src="readmeresources/screenshots/Jenkins_screen_parameters.png" alt="JenkinsBuildParameters">
 </p>
 
 ## <a name="Allure" href="https://jenkins.autotests.cloud/job/C19_barvinok61_diplom_project/89/allure/">Allure Report</a>
+
 Summary
 <p  align="center">
 <img src="readmeresources/screenshots/Allure_Report_Summary.png" alt="AllureReport">
@@ -194,6 +226,7 @@ Test cases
 </p>
 
 ## <a name="AllureTestOps">Allure TestOps Dashboard</a>
+
 Note that test cases in AllureTestOps are automatically imported from auto tests
 Flat list of test cases in AllureTestOps
 <p  align="center">
@@ -211,20 +244,22 @@ Test cases grouped by Suites in AllureTestOps
 </p>
 
 ## <a name="TelegramNotifications">Telegram notifications</a>
-After the test run has been finished the notification is sent to telegram. Notifications can be sent to a number of messengers
+
+After the test run has been finished the notification is sent to telegram. Notifications can be sent to a number of
+messengers
 <p  align="center">
 <img src="readmeresources/screenshots/telegram_notification.png" alt="TelegramNotification" >
 </p>
 
-
 ## <a name="Jira">Jira integration</a>
+
 Test cases and results of tests launches have been integrated in Jira to provide correct and fully clear QA process.
 <p  align="center">
 <img src="readmeresources/screenshots/Jira_integration.png" alt="JiraIntegration" >
 </p>
 
-
 ## <a name="Video">Video of tests</a>
+
 Web test:
 <p align="center">
   <img src="readmeresources/video/video_selenoid.gif" alt="WebTestVideo">
