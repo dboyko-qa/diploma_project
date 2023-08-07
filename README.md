@@ -192,7 +192,8 @@ bsAccessKey=
 
 Default values are set for parameters for local run.\
 All build parameters can be set either in .properties files or by system properties.
-In this project no sensitive data is stored in GitHub, but created on the fly during build in Jenkins.
+> [!NOTE]
+> In this project no sensitive data is stored in GitHub, but created on the fly during build in Jenkins.
 
 Possible combinations of test run profiles:
 
