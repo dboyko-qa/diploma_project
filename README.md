@@ -146,7 +146,7 @@ mobileAppActivity=
 - `user.properties` file for user data
 
 ```properties
-  userName=
+userName=
 userPassword=
 foreignPortfolio=
 ```
@@ -154,7 +154,7 @@ foreignPortfolio=
 - `{webprofile}.properties` file for settings of environment where UI tests should be run
 
 ```properties
-  browser=
+browser=
 browserVersion=
 browserSize= 
 ```
@@ -162,14 +162,14 @@ browserSize=
 if tests should be run in Selenoid, then the following parameters should also have values:
 
 ```properties
-  remoteWebDriver=
+remoteWebDriver=
 remoteUrl=
 ```
 
 - `{mobileprofile}.properties` file for settings of environment where UI tests should be run
 
 ```properties
-  mobileVersion=
+mobileVersion=
 mobilePlatformName=
 mobileDeviceName=
 ```
